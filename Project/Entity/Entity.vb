@@ -20,7 +20,7 @@ Namespace AkagawaTsurunaki
                 Public Property Price As Decimal
 
                 ' 菜单项的Tag, 可用来对该项进行标签 
-                Public Property Tags As List(Of Tag)
+                Public Property TagIds As List(Of UInteger)
 
                 Private Property _id As UInteger
 
