@@ -45,6 +45,7 @@
                 End Function
 
                 Public Function Print()
+                    Console.WriteLine()
                     Console.WriteLine($"表名{TableName}")
                     For Each record In RecordList
                         Console.WriteLine("------------------")
