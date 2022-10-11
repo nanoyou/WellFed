@@ -32,6 +32,10 @@
                     Me.ParentTagId = parentId
                 End Sub
 
+                Public Overrides Function ToString() As String
+                    Return $"标签ID: {tagId}, 标签名称: {Name}, 父标签ID: {ParentTagId}"
+                End Function
+
 
             End Class
         End Namespace
