@@ -5,6 +5,7 @@ Public Class MainForm
 
     Public Shared Sub Run()
         MemberService.Instance.Init()
+        TagService.Instance.Init()
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load

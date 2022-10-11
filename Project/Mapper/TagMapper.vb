@@ -26,6 +26,10 @@ Namespace AkagawaTsurunaki
                 Public Function FindTags() As List(Of Entity.Tag)
                     Return tagTable.RecordList
                 End Function
+
+                Public Sub Print()
+                    tagTable.Print()
+                End Sub
             End Class
 
         End Namespace

@@ -6,6 +6,11 @@ Namespace AkagawaTsurunaki
             Public Class TagService : Implements Interfaces.PreGenerator
                 Public Shared ReadOnly Property Instance As TagService = New TagService()
 
+                Public Sub Init()
+                    Mapper.TagMapper.Instance.Init()
+                    PreGenerate()
+                End Sub
+
                 Private Sub New()
 
                 End Sub
@@ -52,11 +57,10 @@ Namespace AkagawaTsurunaki
                     Mapper.TagMapper.Instance.AddTag(setSonAndParent.Invoke("牛奶", "饮品"))
 
 
-
-
-
-
+                    Mapper.TagMapper.Instance.Print()
                 End Sub
+
+
 
 
 
