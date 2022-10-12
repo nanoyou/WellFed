@@ -22,50 +22,91 @@ Partial Class MainForm
     '不要使用代码编辑器修改它。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.ConfirmBtn = New System.Windows.Forms.Button()
-        Me.ClearBtn = New System.Windows.Forms.Button()
+        Me.BtnConfirm = New System.Windows.Forms.Button()
+        Me.BtnClear = New System.Windows.Forms.Button()
         Me.MenuTreeView = New System.Windows.Forms.TreeView()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
-        'ConfirmBtn
+        'BtnConfirm
         '
-        Me.ConfirmBtn.Location = New System.Drawing.Point(214, 414)
-        Me.ConfirmBtn.Name = "ConfirmBtn"
-        Me.ConfirmBtn.Size = New System.Drawing.Size(103, 24)
-        Me.ConfirmBtn.TabIndex = 6
-        Me.ConfirmBtn.Text = "选好了"
-        Me.ConfirmBtn.UseVisualStyleBackColor = True
+        Me.BtnConfirm.Font = New System.Drawing.Font("微软雅黑", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.BtnConfirm.Location = New System.Drawing.Point(72, 534)
+        Me.BtnConfirm.Name = "BtnConfirm"
+        Me.BtnConfirm.Size = New System.Drawing.Size(89, 89)
+        Me.BtnConfirm.TabIndex = 6
+        Me.BtnConfirm.Text = "我选好了"
+        Me.BtnConfirm.UseVisualStyleBackColor = True
         '
-        'ClearBtn
+        'BtnClear
         '
-        Me.ClearBtn.Location = New System.Drawing.Point(476, 414)
-        Me.ClearBtn.Name = "ClearBtn"
-        Me.ClearBtn.Size = New System.Drawing.Size(103, 24)
-        Me.ClearBtn.TabIndex = 7
-        Me.ClearBtn.Text = "重新选择"
-        Me.ClearBtn.UseVisualStyleBackColor = True
+        Me.BtnClear.Font = New System.Drawing.Font("微软雅黑", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.BtnClear.Location = New System.Drawing.Point(523, 534)
+        Me.BtnClear.Name = "BtnClear"
+        Me.BtnClear.Size = New System.Drawing.Size(89, 89)
+        Me.BtnClear.TabIndex = 7
+        Me.BtnClear.Text = "重新选择"
+        Me.BtnClear.UseVisualStyleBackColor = True
         '
         'MenuTreeView
         '
-        Me.MenuTreeView.Location = New System.Drawing.Point(149, 67)
+        Me.MenuTreeView.Location = New System.Drawing.Point(72, 28)
         Me.MenuTreeView.Name = "MenuTreeView"
-        Me.MenuTreeView.Size = New System.Drawing.Size(494, 311)
+        Me.MenuTreeView.Size = New System.Drawing.Size(540, 461)
         Me.MenuTreeView.TabIndex = 8
         '
-        'MianForm
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(238, 542)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(67, 15)
+        Me.Label1.TabIndex = 9
+        Me.Label1.Text = "总价格为"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("微软雅黑", 28.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label2.Location = New System.Drawing.Point(300, 563)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(92, 60)
+        Me.Label2.TabIndex = 10
+        Me.Label2.Text = "0.0"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("微软雅黑", 28.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label3.Location = New System.Drawing.Point(408, 563)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(72, 60)
+        Me.Label3.TabIndex = 11
+        Me.Label3.Text = "元"
+        '
+        'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(690, 646)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.MenuTreeView)
-        Me.Controls.Add(Me.ClearBtn)
-        Me.Controls.Add(Me.ConfirmBtn)
-        Me.Name = "MianForm"
+        Me.Controls.Add(Me.BtnClear)
+        Me.Controls.Add(Me.BtnConfirm)
+        Me.Name = "MainForm"
         Me.Text = "Form1"
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
-    Friend WithEvents ConfirmBtn As Button
-    Friend WithEvents ClearBtn As Button
+    Friend WithEvents BtnConfirm As Button
+    Friend WithEvents BtnClear As Button
     Friend WithEvents MenuTreeView As TreeView
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label3 As Label
 End Class

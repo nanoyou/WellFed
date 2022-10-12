@@ -1,26 +1,16 @@
 ﻿Imports WellFed.AkagawaTsurunaki.WellFed
 Imports WellFed.AkagawaTsurunaki.WellFed.Service
+Imports WellFed.AkagawaTsurunaki.WellFed.Controller
 
 Public Class MainForm
 
+    Private Shared Property controller As Controller = Controller.Instance
+
     Public Shared Sub Run()
-
-        MemberService.Instance.Init()
-        TagService.Instance.Init()
+        controller.Init()
     End Sub
 
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Run()
-    End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles ConfirmBtn.Click
-    End Sub
-
-    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles ClearBtn.Click
-
-    End Sub
-
-    Private Sub MenuTreeView_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles MenuTreeView.AfterSelect
-
+    Private Sub BtnConfirm_Click(sender As Object, e As EventArgs) Handles BtnConfirm.Click
+        controller.Rediret("/login")
     End Sub
 End Class
