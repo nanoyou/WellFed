@@ -4,6 +4,7 @@ Imports WellFed.AkagawaTsurunaki.WellFed.Service
 Public Class MainForm
 
     Public Shared Sub Run()
+
         MemberService.Instance.Init()
         TagService.Instance.Init()
     End Sub
