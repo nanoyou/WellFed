@@ -47,7 +47,7 @@ Namespace AkagawaTsurunaki
                         m.Telephone = CStr(Rnd() * 10000) + CStr(Rnd() * 100000)
                         m.Balance = New Decimal(Rnd() * 100)
                         m.PassWord = CStr(Rnd() * 1000000)
-                        Mapper.MemberMapper.Instance.AddMember(m)
+                        Mapper.MemberMapper.Instance.InsertMember(m)
                     Next
                     Mapper.MemberMapper.Instance.Print()
                 End Sub

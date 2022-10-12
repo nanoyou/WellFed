@@ -8,7 +8,7 @@ Namespace AkagawaTsurunaki
             Public Class MenuService : Implements Interfaces.PreGenerator
 
                 Public Shared ReadOnly Property Instance = New MenuService()
-                Private Shared Property menuTable As Table(Of Entity.MenuItem)
+                ' Private Shared Property menuTable As Table(Of Entity.MenuItem)
 
                 Public Sub PreGenerate() Implements PreGenerator.PreGenerate
 
@@ -19,6 +19,7 @@ Namespace AkagawaTsurunaki
                                       menuItem.Price = New Decimal(Int(Rnd() * 60))
                                       menuItem.Name = item
                                       menuItem.TagIds.Add(tagId)
+                                      Mapper.MenuItemMapper.Instance.InsertMember(menuItem)
                                   Next
                               End Function
 
@@ -37,20 +38,18 @@ Namespace AkagawaTsurunaki
                     fun.Invoke("矿泉水", {"矿泉水"})
                     fun.Invoke("牛奶", {"热牛奶", "凉牛奶"})
 
-                    menuTable.Print()
+                    Mapper.MenuItemMapper.Instance.Print()
                 End Sub
 
                 Public Function Init()
-                    menuTable = Table(Of Entity.MenuItem).Create("menu_table")
+                    Mapper.MenuItemMapper.Instance.Init()
                     PreGenerate()
                 End Function
 
+                Public Function 
+
             End Class
-
-
-
         End Namespace
-
     End Namespace
 End Namespace
 

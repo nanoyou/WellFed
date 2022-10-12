@@ -109,6 +109,7 @@
     </Compile>
     <Compile Include="Project\Interfaces\PreGenerator.vb" />
     <Compile Include="Project\Mapper\MemberMapper.vb" />
+    <Compile Include="Project\Mapper\MenuItemMapper.vb" />
     <Compile Include="Project\Mapper\TagMapper.vb" />
     <Compile Include="Project\Service\MemberService.vb" />
     <Compile Include="Project\Service\MenuService.vb" />
