@@ -71,6 +71,24 @@ Namespace AkagawaTsurunaki
                     Return result
                 End Function
 
+                Public Function IsLeafTag(tagId As UInteger) As Boolean
+                    For Each tag In FindTags()
+                        If tag.ParentTagId = tagId Then
+                            Return False
+                        End If
+                    Next
+                    Return True
+                End Function
+
+                Public Function SelectLeafTags() As List(Of Entity.Tag)
+                    Dim result As New List(Of Entity.Tag)
+                    For Each tag In FindTags()
+                        If IsLeafTag(tag.Id) Then
+                            result.Add(tag)
+                        End If
+                    Next
+                    Return result
+                End Function
 
             End Class
 

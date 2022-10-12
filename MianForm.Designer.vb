@@ -46,7 +46,7 @@ Partial Class MainForm
         'BtnClear
         '
         Me.BtnClear.Font = New System.Drawing.Font("微软雅黑", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.BtnClear.Location = New System.Drawing.Point(465, 427)
+        Me.BtnClear.Location = New System.Drawing.Point(621, 427)
         Me.BtnClear.Margin = New System.Windows.Forms.Padding(2)
         Me.BtnClear.Name = "BtnClear"
         Me.BtnClear.Size = New System.Drawing.Size(67, 71)
@@ -57,7 +57,7 @@ Partial Class MainForm
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(202, 427)
+        Me.Label1.Location = New System.Drawing.Point(262, 427)
         Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(53, 12)
@@ -68,7 +68,7 @@ Partial Class MainForm
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("微软雅黑", 28.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label2.Location = New System.Drawing.Point(260, 448)
+        Me.Label2.Location = New System.Drawing.Point(330, 448)
         Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(75, 50)
@@ -79,7 +79,7 @@ Partial Class MainForm
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("微软雅黑", 28.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label3.Location = New System.Drawing.Point(339, 448)
+        Me.Label3.Location = New System.Drawing.Point(422, 448)
         Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(60, 50)
@@ -90,13 +90,13 @@ Partial Class MainForm
         '
         Me.TreeViewMenu.Location = New System.Drawing.Point(60, 30)
         Me.TreeViewMenu.Name = "TreeViewMenu"
-        Me.TreeViewMenu.Size = New System.Drawing.Size(195, 361)
+        Me.TreeViewMenu.Size = New System.Drawing.Size(275, 361)
         Me.TreeViewMenu.TabIndex = 16
         '
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("微软雅黑", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Button1.Location = New System.Drawing.Point(269, 178)
+        Me.Button1.Location = New System.Drawing.Point(348, 181)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(66, 69)
         Me.Button1.TabIndex = 17
@@ -106,9 +106,9 @@ Partial Class MainForm
         'ListView1
         '
         Me.ListView1.HideSelection = False
-        Me.ListView1.Location = New System.Drawing.Point(348, 30)
+        Me.ListView1.Location = New System.Drawing.Point(431, 30)
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(184, 361)
+        Me.ListView1.Size = New System.Drawing.Size(257, 361)
         Me.ListView1.TabIndex = 18
         Me.ListView1.UseCompatibleStateImageBehavior = False
         '
@@ -116,7 +116,7 @@ Partial Class MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(592, 517)
+        Me.ClientSize = New System.Drawing.Size(743, 517)
         Me.Controls.Add(Me.ListView1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.TreeViewMenu)

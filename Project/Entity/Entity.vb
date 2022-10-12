@@ -46,7 +46,7 @@ Namespace AkagawaTsurunaki
                 End Function
 
                 Public Function ToPlain() As String
-                    Return $"{Name} {Price}元/份"
+                    Return $"{Name} {Price}元/份 {CUInt(WaitTime / 60) }分钟"
                 End Function
 
 

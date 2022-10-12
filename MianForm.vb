@@ -1,11 +1,10 @@
 ﻿Imports WellFed.AkagawaTsurunaki.WellFed
 Imports WellFed.AkagawaTsurunaki.WellFed.Service
 Imports WellFed.AkagawaTsurunaki.WellFed.Controller
-Imports System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar
 
 Public Class MainForm
     Private Shared Property menuService As Service.MenuService = Service.MenuService.Instance
-    Private Shared Property controller As Controller = Controller.Instance
+    Private Shared ReadOnly Property CONTROLLER As Controller = Controller.INSTANCE
 
     Public Shared Sub Run()
         controller.Init()
@@ -19,7 +18,7 @@ Public Class MainForm
     End Sub
 
     Private Sub BtnConfirm_Click(sender As Object, e As EventArgs) Handles BtnConfirm.Click
-        controller.Rediret("/login")
+        LoginController.INSTANCE.Show(LoginController.WindowType.Telephone)
     End Sub
 
 End Class

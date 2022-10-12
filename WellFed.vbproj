@@ -74,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Project\Controller\Controller.vb" />
+    <Compile Include="Project\Controller\LoginController.vb" />
     <Compile Include="Project\Data\WellDataBase.vb" />
     <Compile Include="Project\Entity\Entity.vb" />
     <Compile Include="Project\Entity\Member.vb" />
@@ -101,10 +102,16 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Project\Entity\Tag.vb" />
-    <Compile Include="Project\GUI\LoginForm.Designer.vb">
-      <DependentUpon>LoginForm.vb</DependentUpon>
+    <Compile Include="Project\GUI\PasswordForm.Designer.vb">
+      <DependentUpon>PasswordForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Project\GUI\LoginForm.vb">
+    <Compile Include="Project\GUI\PasswordForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Project\GUI\TelephoneForm.Designer.vb">
+      <DependentUpon>TelephoneForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Project\GUI\TelephoneForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Project\Interfaces\PreGenerator.vb" />
@@ -125,8 +132,11 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Project\GUI\LoginForm.resx">
-      <DependentUpon>LoginForm.vb</DependentUpon>
+    <EmbeddedResource Include="Project\GUI\PasswordForm.resx">
+      <DependentUpon>PasswordForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Project\GUI\TelephoneForm.resx">
+      <DependentUpon>TelephoneForm.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

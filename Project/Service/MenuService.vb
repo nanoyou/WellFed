@@ -20,6 +20,7 @@ Namespace AkagawaTsurunaki
                                       Dim menuItem = New Entity.MenuItem()
                                       menuItem.Price = New Decimal(Int(Rnd() * 60))
                                       menuItem.Name = item
+                                      menuItem.WaitTime = Rnd() * 1000
                                       menuItem.TagIds.Add(tagId)
                                       Mapper.MenuItemMapper.Instance.InsertMember(menuItem)
                                   Next
@@ -57,6 +58,7 @@ Namespace AkagawaTsurunaki
                     Dim rootNode As New TreeNode(rootTag.Name)
                     tv.Nodes.Add(rootNode)
                     RecursivelyGetTreeNode(tv.Nodes, rootTag, 0)
+                    fun(rootNode)
                 End Function
 
                 Function RecursivelyGetTreeNode(ByRef nd As TreeNodeCollection, pTag As Entity.Tag, ByVal count As Integer)
@@ -69,19 +71,45 @@ Namespace AkagawaTsurunaki
                     For Each tag In tagList
                         nd(count).Nodes.Add(tag.Name)
                         ' 叶节点判断
-                        If RecursivelyGetTreeNode(nd(count).Nodes, tag, tagList.IndexOf(tag)) Then
-                            Dim menuList = Mapper.MenuItemMapper.Instance.SelectMenuItemByTag(tag.Id)
-                            For Each m In menuList
-                                nd(count).Nodes(0).Nodes.Add(m.ToPlain)
-                            Next
-                        End If
+                        RecursivelyGetTreeNode(nd(count).Nodes, tag, tagList.IndexOf(tag))
                     Next
+                    Return False
                 End Function
 
-                Sub fun()
+                Sub fun(ByRef node As TreeNode)
+
+                    Dim leafTagList = Mapper.TagMapper.Instance.SelectLeafTags()
+
+                    For Each t In leafTagList
+                        Dim menuList = Mapper.MenuItemMapper.Instance.SelectMenuItemByTag(t.Id)
+
+                        For Each m In menuList
+                            Dim nd = FindNode(node, t.Name)
+                            If nd IsNot Nothing Then
+                                nd.Nodes.Add(m.ToPlain())
+                            End If
+                        Next
+                    Next
+
 
                 End Sub
 
+
+                Function FindNode(ByRef node As TreeNode, name As String) As TreeNode
+                    Dim ret As TreeNode = Nothing
+                    For Each t As TreeNode In node.Nodes
+                        If Not t.Nodes.Count = 0 Then
+                            ret = FindNode(t, name)
+                            If ret IsNot Nothing Then
+                                Return ret
+                            End If
+                        End If
+                        If t.Text = name Then
+                            Return t
+                        End If
+                    Next
+                    Return ret
+                End Function
 
 
             End Class
