@@ -1,10 +1,29 @@
 ﻿Imports WellFed.AkagawaTsurunaki.WellFed.Controller
 Public Class LoginForm
-    Private Shared Property isTelInput As Boolean = True
-    Private Shared Property input As String = ""
+    Private Property isTelInput As Boolean = True
+    Private Property password As String = ""
     Private Shared Property controller As Controller = Controller.Instance
+    Private Property input As String = ""
+    Private Property telephone As String = ""
 
     Private Sub BtnLogin_Click(sender As Object, e As EventArgs) Handles BtnLogin.Click
+
+        If BtnLogin.Text = "登录" Then
+            If controller.Login(telephone, password) Then
+                MessageBox.Show($"尊敬的会员({telephone})登录成功！您可以立即下单了！", "登录成功", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information)
+                Me.Close()
+            Else
+                Me.Close()
+            End If
+
+        End If
+
+        If isTelInput Then
+            telephone = input
+            input = ""
+        End If
+        isTelInput = Not isTelInput
+        BtnLogin.Text = "登录"
 
     End Sub
 
@@ -16,23 +35,9 @@ Public Class LoginForm
         End If
     End Sub
 
-    Private Sub UpdateInputText(ByVal str As String)
-        If isTelInput Then
-            TxtBoxTel.Text = str
-        Else
-            TxtBoxPsw.Text = str
-        End If
-    End Sub
-
     Private Sub BtnCancel_Click(sender As Object, e As EventArgs) Handles BtnCancel.Click
-        If input.Length <= 0 Then
-            UpdateInputText("请先填写这一项，用数字键盘直接输入")
-            Return
-        End If
-        input = input.Remove(input.Length - 1)
-        If input.Length <= 0 Then
-            UpdateInputText("请先填写这一项，用数字键盘直接输入")
-            Return
+        If input.Length > 0 Then
+            input = input.Remove(input.Length - 1)
         End If
         UpdateInputText()
     End Sub
