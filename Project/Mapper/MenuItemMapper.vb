@@ -18,6 +18,12 @@ Namespace AkagawaTsurunaki
                 Public Sub Print()
                     menuItemTable.Print()
                 End Sub
+
+                Public Function SelectAll()
+                    Return menuItemTable.RecordList
+                End Function
+
+
             End Class
 
         End Namespace

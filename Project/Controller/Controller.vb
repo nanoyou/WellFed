@@ -51,6 +51,14 @@ Namespace AkagawaTsurunaki
 
                 End Function
 
+                Public Function FetchMenu()
+                    ' 获取所有的标签
+
+                    ' 获取所有的菜单项
+                    ' Service.MenuService.Instance.
+                    ' 
+                End Function
+
             End Class
         End Namespace
     End Namespace

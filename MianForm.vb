@@ -4,7 +4,7 @@ Imports WellFed.AkagawaTsurunaki.WellFed.Controller
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar
 
 Public Class MainForm
-
+    Private Shared Property menuService As Service.MenuService = Service.MenuService.Instance
     Private Shared Property controller As Controller = Controller.Instance
 
     Public Shared Sub Run()
@@ -13,9 +13,13 @@ Public Class MainForm
     Private Sub Form_Load(ByVal sender As Object,
     ByVal e As System.EventArgs) Handles MyBase.Load
         Run()
+        menuService.GetTreeNodeWithAllMenuItems(TreeViewMenu)
+        TreeViewMenu.Refresh()
+
     End Sub
 
     Private Sub BtnConfirm_Click(sender As Object, e As EventArgs) Handles BtnConfirm.Click
         controller.Rediret("/login")
     End Sub
+
 End Class

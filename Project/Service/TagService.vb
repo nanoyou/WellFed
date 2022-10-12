@@ -37,8 +37,9 @@ Namespace AkagawaTsurunaki
                                               t.ParentTagId = FindTagByName(pName).First.tagId
                                               Return t
                                           End Function
-
-                    Mapper.TagMapper.Instance.AddTag(New Entity.Tag("餐饮类别"))
+                    Dim rootTag As New Entity.Tag("餐饮类别", 1)
+                    rootTag.ParentTagId = 0
+                    Mapper.TagMapper.Instance.AddTag(rootTag)
 
                     Mapper.TagMapper.Instance.AddTag(setSonAndParent.Invoke("主食", "餐饮类别"))
                     Mapper.TagMapper.Instance.AddTag(setSonAndParent.Invoke("菜品", "餐饮类别"))
@@ -60,7 +61,10 @@ Namespace AkagawaTsurunaki
                     Mapper.TagMapper.Instance.Print()
                 End Sub
 
+                Public Function GetRootTag() As Entity.Tag
 
+
+                End Function
 
 
 

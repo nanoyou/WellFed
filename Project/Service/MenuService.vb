@@ -1,4 +1,6 @@
-﻿Imports WellFed
+﻿Imports System.Reflection
+Imports WellFed
+Imports WellFed.AkagawaTsurunaki.WellFed.Entity
 Imports WellFed.AkagawaTsurunaki.WellFed.Interfaces
 Imports WellFed.AkagawaTsurunaki.WellFed.WellDataBase
 
@@ -45,8 +47,32 @@ Namespace AkagawaTsurunaki
                     Mapper.MenuItemMapper.Instance.Init()
                     PreGenerate()
                 End Function
+                ''' <summary>
+                ''' 获取一个拥有所有菜单项的TreeView
+                ''' </summary>
+                ''' <returns></returns>
+                Public Function GetTreeNodeWithAllMenuItems(ByRef tv As TreeView)
+                    Dim menuItemList = Mapper.MenuItemMapper.Instance.SelectAll()
+                    Dim rootTag = Mapper.TagMapper.Instance.SelectRootTag()
+                    Dim rootNode As New TreeNode(rootTag.Name)
+                    tv.Nodes.Add(rootNode)
+                    RecursivelyGetTreeNode(tv.Nodes, rootTag, 0)
+                End Function
 
-                Public Function 
+                Sub RecursivelyGetTreeNode(ByRef nd As TreeNodeCollection, pTag As Entity.Tag, ByVal count As Integer)
+                    Dim tagList = Mapper.TagMapper.Instance.SelectTagsByParentId(pTag.Id)
+                    ' 如果已经递归到底, 则直接返回
+                    If tagList.Count = 0 Then
+                        Return
+                    End If
+                    ' 递归查询所有Tag
+                    For Each tag In tagList
+                        nd(count).Nodes.Add(tag.Name)
+                        RecursivelyGetTreeNode(nd(count).Nodes, tag, tagList.IndexOf(tag))
+                    Next
+
+                End Sub
+
 
             End Class
         End Namespace
