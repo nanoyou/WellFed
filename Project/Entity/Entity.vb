@@ -20,17 +20,17 @@ Namespace AkagawaTsurunaki
                 Public Property Price As Decimal
 
                 ' 菜单项的Tag, 可用来对该项进行标签 
-                Public Property TagIds As List(Of UInteger)
+                Public Property TagIds As New List(Of UInteger)
 
-                Private Property _id As UInteger
+                Private Property menuId As UInteger
 
                 ' 菜单项的ID
-                Public Property Id() As UInteger Implements HasPrimaryKey.PrimaryKey
+                Public Property Id As UInteger Implements HasPrimaryKey.PrimaryKey
                     Get
-                        Return Id
+                        Return menuId
                     End Get
                     Set(value As UInteger)
-                        _id = value
+                        menuId = value
                     End Set
                 End Property
 
@@ -39,6 +39,10 @@ Namespace AkagawaTsurunaki
                 ' 菜单项的构造器
                 Public Sub New()
                 End Sub
+
+                Public Overrides Function ToString() As String
+                    Return $"菜品ID: {menuId}, 菜品名称: {Name}, 菜品价格: {Price}, 菜品标签: {TagIds}"
+                End Function
 
 
             End Class
