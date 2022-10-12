@@ -34,8 +34,6 @@ Namespace AkagawaTsurunaki
                     End Set
                 End Property
 
-
-
                 ' 菜单项的构造器
                 Public Sub New()
                 End Sub
