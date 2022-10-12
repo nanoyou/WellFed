@@ -44,9 +44,10 @@ Namespace AkagawaTsurunaki
                 Private Sub PreGenerate() Implements PreGenerator.PreGenerate
                     For counter = 1 To 20
                         Dim m = New Entity.Member()
-                        m.Telephone = CStr(Rnd() * 10000) + CStr(Rnd() * 100000)
+
+                        m.Telephone = CLng((20000000000 - 10000000000 + 1) * Rnd() + 10000000000).ToString
                         m.Balance = New Decimal(Rnd() * 100)
-                        m.PassWord = CStr(Rnd() * 1000000)
+                        m.PassWord = Int((999999 - 100000 + 1) * Rnd() + 100000).ToString
                         Mapper.MemberMapper.Instance.InsertMember(m)
                     Next
                     Mapper.MemberMapper.Instance.Print()

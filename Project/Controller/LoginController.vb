@@ -26,10 +26,10 @@
                     Return True
                 End Function
 
-                Public Function Login(ByVal tel As String, ByVal rpsw As String) As Boolean
-                    InputTelephone(tel)
-                    InputPassword(rpsw)
-                    If Not MEMBER_SERVICE.Login(telephone, rpsw) Then
+                Public Function Login() As Boolean
+                    InputTelephone(telephone)
+                    InputPassword(rawPassword)
+                    If Not MEMBER_SERVICE.Login(telephone, rawPassword) Then
                         MessageBox.Show("请检查您的手机号和密码是否正确。", "无法登录", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Return False
                     End If

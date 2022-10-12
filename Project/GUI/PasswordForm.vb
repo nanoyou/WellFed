@@ -5,7 +5,9 @@ Public Class PasswordForm
     Private Shared Property CONTROLLER As Controller = Controller.Instance
 
     Private Sub BtnLogin_Click(sender As Object, e As EventArgs) Handles BtnLogin.Click
-
+        LoginController.INSTANCE.InputPassword(password)
+        MessageBox.Show("登录成功！已为您自动付款下单！", "登陆成功", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+        Me.Close()
     End Sub
 
     Private Sub UpdateInputText()
