@@ -36,15 +36,13 @@ Namespace AkagawaTsurunaki
                     fun.Invoke("豆浆", {"热豆浆", "凉豆浆"})
                     fun.Invoke("矿泉水", {"矿泉水"})
                     fun.Invoke("牛奶", {"热牛奶", "凉牛奶"})
+
+                    menuTable.Print()
                 End Sub
 
                 Public Function Init()
                     menuTable = Table(Of Entity.MenuItem).Create("menu_table")
                     PreGenerate()
-                End Function
-
-                Public Function Create()
-
                 End Function
 
             End Class
