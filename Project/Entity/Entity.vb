@@ -22,6 +22,9 @@ Namespace AkagawaTsurunaki
                 ' 菜单项的Tag, 可用来对该项进行标签 
                 Public Property TagIds As New List(Of UInteger)
 
+                ' 菜单项的等待时间
+                Public Property WaitTime As UInteger
+
                 Private Property menuId As UInteger
 
                 ' 菜单项的ID
