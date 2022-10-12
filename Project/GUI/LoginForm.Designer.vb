@@ -24,7 +24,7 @@ Partial Class LoginForm
     Private Sub InitializeComponent()
         Me.BtnLogin = New System.Windows.Forms.Button()
         Me.BtnCancel = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Btn0 = New System.Windows.Forms.Button()
         Me.Btn5 = New System.Windows.Forms.Button()
         Me.Btn8 = New System.Windows.Forms.Button()
         Me.Btn9 = New System.Windows.Forms.Button()
@@ -34,9 +34,9 @@ Partial Class LoginForm
         Me.Btn1 = New System.Windows.Forms.Button()
         Me.Btn3 = New System.Windows.Forms.Button()
         Me.Btn2 = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.TxtBoxTel = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.TxtBoxPsw = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
@@ -47,7 +47,7 @@ Partial Class LoginForm
         Me.BtnLogin.Name = "BtnLogin"
         Me.BtnLogin.Size = New System.Drawing.Size(100, 100)
         Me.BtnLogin.TabIndex = 0
-        Me.BtnLogin.Text = "登录"
+        Me.BtnLogin.Text = "填写密码"
         Me.BtnLogin.UseVisualStyleBackColor = True
         '
         'BtnCancel
@@ -57,18 +57,18 @@ Partial Class LoginForm
         Me.BtnCancel.Name = "BtnCancel"
         Me.BtnCancel.Size = New System.Drawing.Size(100, 100)
         Me.BtnCancel.TabIndex = 1
-        Me.BtnCancel.Text = "取消"
+        Me.BtnCancel.Text = "退格"
         Me.BtnCancel.UseVisualStyleBackColor = True
         '
-        'Button3
+        'Btn0
         '
-        Me.Button3.Font = New System.Drawing.Font("微软雅黑", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Button3.Location = New System.Drawing.Point(207, 583)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(100, 100)
-        Me.Button3.TabIndex = 2
-        Me.Button3.Text = "0"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.Btn0.Font = New System.Drawing.Font("微软雅黑", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Btn0.Location = New System.Drawing.Point(207, 583)
+        Me.Btn0.Name = "Btn0"
+        Me.Btn0.Size = New System.Drawing.Size(100, 100)
+        Me.Btn0.TabIndex = 2
+        Me.Btn0.Text = "0"
+        Me.Btn0.UseVisualStyleBackColor = True
         '
         'Btn5
         '
@@ -160,20 +160,13 @@ Partial Class LoginForm
         Me.Btn2.Text = "2"
         Me.Btn2.UseVisualStyleBackColor = True
         '
-        'TextBox1
+        'TxtBoxTel
         '
-        Me.TextBox1.Location = New System.Drawing.Point(69, 79)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(374, 25)
-        Me.TextBox1.TabIndex = 13
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Location = New System.Drawing.Point(69, 147)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
-        Me.TextBox2.Size = New System.Drawing.Size(374, 25)
-        Me.TextBox2.TabIndex = 14
+        Me.TxtBoxTel.Location = New System.Drawing.Point(69, 79)
+        Me.TxtBoxTel.Name = "TxtBoxTel"
+        Me.TxtBoxTel.Size = New System.Drawing.Size(374, 25)
+        Me.TxtBoxTel.TabIndex = 13
+        Me.TxtBoxTel.Text = "请先填写这一项，用数字键盘直接输入"
         '
         'Label1
         '
@@ -184,6 +177,14 @@ Partial Class LoginForm
         Me.Label1.Size = New System.Drawing.Size(105, 30)
         Me.Label1.TabIndex = 15
         Me.Label1.Text = "手机号码"
+        '
+        'TxtBoxPsw
+        '
+        Me.TxtBoxPsw.Location = New System.Drawing.Point(69, 147)
+        Me.TxtBoxPsw.Name = "TxtBoxPsw"
+        Me.TxtBoxPsw.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
+        Me.TxtBoxPsw.Size = New System.Drawing.Size(374, 25)
+        Me.TxtBoxPsw.TabIndex = 14
         '
         'Label2
         '
@@ -202,8 +203,8 @@ Partial Class LoginForm
         Me.ClientSize = New System.Drawing.Size(516, 718)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.TxtBoxPsw)
+        Me.Controls.Add(Me.TxtBoxTel)
         Me.Controls.Add(Me.Btn1)
         Me.Controls.Add(Me.Btn3)
         Me.Controls.Add(Me.Btn2)
@@ -213,7 +214,7 @@ Partial Class LoginForm
         Me.Controls.Add(Me.Btn9)
         Me.Controls.Add(Me.Btn8)
         Me.Controls.Add(Me.Btn5)
-        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.Btn0)
         Me.Controls.Add(Me.BtnCancel)
         Me.Controls.Add(Me.BtnLogin)
         Me.Name = "LoginForm"
@@ -225,7 +226,7 @@ Partial Class LoginForm
 
     Friend WithEvents BtnLogin As Button
     Friend WithEvents BtnCancel As Button
-    Friend WithEvents Button3 As Button
+    Friend WithEvents Btn0 As Button
     Friend WithEvents Btn5 As Button
     Friend WithEvents Btn8 As Button
     Friend WithEvents Btn9 As Button
@@ -235,8 +236,8 @@ Partial Class LoginForm
     Friend WithEvents Btn1 As Button
     Friend WithEvents Btn3 As Button
     Friend WithEvents Btn2 As Button
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents TxtBoxTel As TextBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents TxtBoxPsw As TextBox
     Friend WithEvents Label2 As Label
 End Class
