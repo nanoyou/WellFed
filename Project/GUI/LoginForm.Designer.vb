@@ -166,7 +166,7 @@ Partial Class LoginForm
         Me.TxtBoxTel.Name = "TxtBoxTel"
         Me.TxtBoxTel.Size = New System.Drawing.Size(374, 25)
         Me.TxtBoxTel.TabIndex = 13
-        Me.TxtBoxTel.Text = "请先填写这一项，用数字键盘直接输入"
+        Me.TxtBoxTel.Text = "请填写这一项，用数字键盘直接输入"
         '
         'Label1
         '
