@@ -59,20 +59,6 @@ Namespace AkagawaTsurunaki
                     RecursivelyGetTreeNode(tv.Nodes, rootTag, 0)
                 End Function
 
-                Sub RecursivelyGetTreeNode1(ByRef nd As TreeNodeCollection, pTag As Entity.Tag, ByVal count As Integer)
-                    Dim tagList = Mapper.TagMapper.Instance.SelectTagsByParentId(pTag.Id)
-                    ' 如果已经递归到底, 则直接返回
-                    If tagList.Count = 0 Then
-                        Return
-                    End If
-                    ' 递归查询所有Tag
-                    For Each tag In tagList
-                        nd(count).Nodes.Add(tag.Name)
-                        RecursivelyGetTreeNode1(nd(count).Nodes, tag, tagList.IndexOf(tag))
-                    Next
-
-                End Sub
-
                 Function RecursivelyGetTreeNode(ByRef nd As TreeNodeCollection, pTag As Entity.Tag, ByVal count As Integer)
                     Dim tagList = Mapper.TagMapper.Instance.SelectTagsByParentId(pTag.Id)
                     ' 如果已经递归到底, 则直接返回
@@ -89,9 +75,7 @@ Namespace AkagawaTsurunaki
                                 nd(count).Nodes(0).Nodes.Add(m.ToPlain)
                             Next
                         End If
-
                     Next
-
                 End Function
 
                 Sub fun()
