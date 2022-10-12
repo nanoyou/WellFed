@@ -35,9 +35,20 @@ Namespace AkagawaTsurunaki
                 End Sub
 
 
-
-                Public Function FindMemberByTelephone() As Entity.Member
-
+                ''' <summary>
+                ''' 根据手机号查询会员
+                ''' </summary>
+                ''' <param name="telephone"></param>
+                ''' <returns></returns>
+                Public Function FindMemberByTelephone(ByVal telephone As String) As Entity.Member
+                    If telephone IsNot Nothing Then
+                        For Each member In memberTable.RecordList
+                            If member.Telephone = telephone Then
+                                Return member
+                            End If
+                        Next
+                    End If
+                    Return Nothing
                 End Function
             End Class
         End Namespace
