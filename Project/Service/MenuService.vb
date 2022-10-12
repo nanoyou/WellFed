@@ -6,6 +6,8 @@ Namespace AkagawaTsurunaki
     Namespace WellFed
         Namespace Service
             Public Class MenuService : Implements Interfaces.PreGenerator
+
+                Public Shared ReadOnly Property Instance = New MenuService()
                 Private Shared Property menuTable As Table(Of Entity.MenuItem)
 
                 Public Sub PreGenerate() Implements PreGenerator.PreGenerate
