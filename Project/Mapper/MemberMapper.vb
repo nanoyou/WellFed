@@ -15,11 +15,11 @@ Namespace AkagawaTsurunaki
                     memberTable = Table(Of Entity.Member).Create("member_table")
                 End Sub
 
-                Public Sub AddMember(ByRef member As Entity.Member)
+                Public Sub InsertMember(ByRef member As Entity.Member)
                     memberTable.Insert(member)
                 End Sub
 
-                Public Sub AddMember(ByRef members As List(Of Entity.Member))
+                Public Sub InsertMember(ByRef members As List(Of Entity.Member))
                     For Each member In members
                         memberTable.Insert(member)
                     Next
