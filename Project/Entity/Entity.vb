@@ -42,6 +42,10 @@ Namespace AkagawaTsurunaki
                     Return $"菜品ID: {menuId}, 菜品名称: {Name}, 菜品价格: {Price}, 菜品标签: {TagIds}"
                 End Function
 
+                Public Function ToPlain() As String
+                    Return $"{Name} {Price}元/份"
+                End Function
+
 
             End Class
 

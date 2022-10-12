@@ -59,7 +59,7 @@ Namespace AkagawaTsurunaki
                     RecursivelyGetTreeNode(tv.Nodes, rootTag, 0)
                 End Function
 
-                Sub RecursivelyGetTreeNode(ByRef nd As TreeNodeCollection, pTag As Entity.Tag, ByVal count As Integer)
+                Sub RecursivelyGetTreeNode1(ByRef nd As TreeNodeCollection, pTag As Entity.Tag, ByVal count As Integer)
                     Dim tagList = Mapper.TagMapper.Instance.SelectTagsByParentId(pTag.Id)
                     ' 如果已经递归到底, 则直接返回
                     If tagList.Count = 0 Then
@@ -68,10 +68,36 @@ Namespace AkagawaTsurunaki
                     ' 递归查询所有Tag
                     For Each tag In tagList
                         nd(count).Nodes.Add(tag.Name)
-                        RecursivelyGetTreeNode(nd(count).Nodes, tag, tagList.IndexOf(tag))
+                        RecursivelyGetTreeNode1(nd(count).Nodes, tag, tagList.IndexOf(tag))
                     Next
 
                 End Sub
+
+                Function RecursivelyGetTreeNode(ByRef nd As TreeNodeCollection, pTag As Entity.Tag, ByVal count As Integer)
+                    Dim tagList = Mapper.TagMapper.Instance.SelectTagsByParentId(pTag.Id)
+                    ' 如果已经递归到底, 则直接返回
+                    If tagList.Count = 0 Then
+                        Return True
+                    End If
+                    ' 递归查询所有Tag
+                    For Each tag In tagList
+                        nd(count).Nodes.Add(tag.Name)
+                        ' 叶节点判断
+                        If RecursivelyGetTreeNode(nd(count).Nodes, tag, tagList.IndexOf(tag)) Then
+                            Dim menuList = Mapper.MenuItemMapper.Instance.SelectMenuItemByTag(tag.Id)
+                            For Each m In menuList
+                                nd(count).Nodes(0).Nodes.Add(m.ToPlain)
+                            Next
+                        End If
+
+                    Next
+
+                End Function
+
+                Sub fun()
+
+                End Sub
+
 
 
             End Class
