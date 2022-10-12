@@ -74,7 +74,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Project\Controller\Controller.vb" />
-    <Compile Include="Project\Controller\MenuController.vb" />
     <Compile Include="Project\Data\WellDataBase.vb" />
     <Compile Include="Project\Entity\Entity.vb" />
     <Compile Include="Project\Entity\Member.vb" />
