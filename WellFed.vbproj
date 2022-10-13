@@ -75,6 +75,7 @@
   <ItemGroup>
     <Compile Include="Project\Controller\Controller.vb" />
     <Compile Include="Project\Controller\LoginController.vb" />
+    <Compile Include="Project\Controller\OrderController.vb" />
     <Compile Include="Project\Data\WellDataBase.vb" />
     <Compile Include="Project\Entity\Entity.vb" />
     <Compile Include="Project\Entity\Member.vb" />
@@ -115,12 +116,16 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Project\Interfaces\PreGenerator.vb" />
+    <Compile Include="Project\Mapper\Mapper.vb" />
     <Compile Include="Project\Mapper\MemberMapper.vb" />
     <Compile Include="Project\Mapper\MenuItemMapper.vb" />
+    <Compile Include="Project\Mapper\OrderMapper.vb" />
     <Compile Include="Project\Mapper\TagMapper.vb" />
     <Compile Include="Project\Service\MemberService.vb" />
     <Compile Include="Project\Service\MenuService.vb" />
+    <Compile Include="Project\Service\OrderService.vb" />
     <Compile Include="Project\Service\TagService.vb" />
+    <Compile Include="Project\Util\WellFedHelper.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MianForm.resx">

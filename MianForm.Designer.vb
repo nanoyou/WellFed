@@ -29,7 +29,7 @@ Partial Class MainForm
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TreeViewMenu = New System.Windows.Forms.TreeView()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.ListView1 = New System.Windows.Forms.ListView()
+        Me.LVOrder = New System.Windows.Forms.ListView()
         Me.SuspendLayout()
         '
         'BtnConfirm
@@ -103,21 +103,21 @@ Partial Class MainForm
         Me.Button1.Text = "->"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'ListView1
+        'LVOrder
         '
-        Me.ListView1.HideSelection = False
-        Me.ListView1.Location = New System.Drawing.Point(431, 30)
-        Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(257, 361)
-        Me.ListView1.TabIndex = 18
-        Me.ListView1.UseCompatibleStateImageBehavior = False
+        Me.LVOrder.HideSelection = False
+        Me.LVOrder.Location = New System.Drawing.Point(431, 30)
+        Me.LVOrder.Name = "LVOrder"
+        Me.LVOrder.Size = New System.Drawing.Size(257, 361)
+        Me.LVOrder.TabIndex = 18
+        Me.LVOrder.UseCompatibleStateImageBehavior = False
         '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(743, 517)
-        Me.Controls.Add(Me.ListView1)
+        Me.Controls.Add(Me.LVOrder)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.TreeViewMenu)
         Me.Controls.Add(Me.Label3)
@@ -139,5 +139,5 @@ Partial Class MainForm
     Friend WithEvents Label3 As Label
     Friend WithEvents TreeViewMenu As TreeView
     Friend WithEvents Button1 As Button
-    Friend WithEvents ListView1 As ListView
+    Friend WithEvents LVOrder As ListView
 End Class
