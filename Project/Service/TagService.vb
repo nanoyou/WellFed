@@ -4,7 +4,7 @@ Namespace AkagawaTsurunaki
     Namespace WellFed
         Namespace Service
             Public Class TagService : Implements Interfaces.PreGenerator
-                Public Shared ReadOnly Property Instance As TagService = New TagService()
+                Public Shared ReadOnly Property INSTANCE As TagService = New TagService()
 
                 Public Sub Init()
                     Mapper.TagMapper.INSTANCE.Init("tag_table")

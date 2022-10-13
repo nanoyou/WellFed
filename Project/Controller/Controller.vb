@@ -11,7 +11,7 @@ Namespace AkagawaTsurunaki
 
                 Public Function Init()
                     Service.MemberService.INSTANCE.Init()
-                    Service.TagService.Instance.Init()
+                    Service.TagService.INSTANCE.Init()
                     Service.MenuService.Instance.Init()
                 End Function
 

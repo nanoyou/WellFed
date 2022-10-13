@@ -18,7 +18,7 @@ Namespace AkagawaTsurunaki
 
                     Dim fun = Sub(ByVal tagName As String, ByRef items As String())
                                   For Each item In items
-                                      Dim tagId = TagService.Instance.FindTagByName(tagName).First.tagId
+                                      Dim tagId = TagService.INSTANCE.FindTagByName(tagName).First.tagId
                                       Dim menuItem = New Entity.MenuItem()
                                       menuItem.Price = New Decimal(Int(Rnd() * 60))
                                       menuItem.Name = item
