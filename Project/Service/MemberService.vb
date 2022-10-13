@@ -6,7 +6,7 @@ Namespace AkagawaTsurunaki
     Namespace WellFed
         Namespace Service
             Public Class MemberService : Implements Interfaces.PreGenerator
-                Public Shared ReadOnly Property Instance As MemberService = New MemberService()
+                Public Shared ReadOnly Property INSTANCE As MemberService = New MemberService()
 
                 Public Shared Property MemberLogined As Entity.Member
 
