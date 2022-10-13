@@ -43,10 +43,16 @@ Namespace AkagawaTsurunaki
                 Public Function Pay() As Boolean
                     If MEMBER_SERVICE.GetMemberLogined().Pay(ORDER_SERVICE.GetCurrentOrder().Cost) Then
                         MainForm.TimerWait.Start()
-
                         Return True
                     End If
                     Return False
+                End Function
+
+                Public Function ClearOrder(ByRef lb As Label, ByRef tm As Label, ByRef lv As ListView)
+                    ORDER_SERVICE.ClearOrder()
+                    lb.Text = ORDER_SERVICE.GetCurrentOrder().Cost
+                    tm.Text = ORDER_SERVICE.GetCurrentOrder().WaitTime
+                    lv.Clear()
                 End Function
 
             End Class

@@ -62,7 +62,7 @@ Partial Class MainForm
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(259, 427)
+        Me.Label1.Location = New System.Drawing.Point(203, 427)
         Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(53, 12)
@@ -71,20 +71,20 @@ Partial Class MainForm
         '
         'LbCost
         '
-        Me.LbCost.AutoSize = True
         Me.LbCost.Font = New System.Drawing.Font("微软雅黑", 28.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.LbCost.Location = New System.Drawing.Point(339, 427)
+        Me.LbCost.Location = New System.Drawing.Point(260, 427)
         Me.LbCost.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LbCost.Name = "LbCost"
-        Me.LbCost.Size = New System.Drawing.Size(75, 50)
+        Me.LbCost.Size = New System.Drawing.Size(221, 50)
         Me.LbCost.TabIndex = 10
         Me.LbCost.Text = "0.0"
+        Me.LbCost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("微软雅黑", 28.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label3.Location = New System.Drawing.Point(422, 427)
+        Me.Label3.Location = New System.Drawing.Point(485, 427)
         Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(60, 50)
@@ -122,7 +122,7 @@ Partial Class MainForm
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(259, 497)
+        Me.Label2.Location = New System.Drawing.Point(203, 492)
         Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(53, 12)
@@ -133,7 +133,7 @@ Partial Class MainForm
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("微软雅黑", 28.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label4.Location = New System.Drawing.Point(422, 492)
+        Me.Label4.Location = New System.Drawing.Point(485, 492)
         Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(60, 50)
@@ -146,14 +146,14 @@ Partial Class MainForm
         '
         'LbWaitTime
         '
-        Me.LbWaitTime.AutoSize = True
         Me.LbWaitTime.Font = New System.Drawing.Font("微软雅黑", 28.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.LbWaitTime.Location = New System.Drawing.Point(339, 492)
+        Me.LbWaitTime.Location = New System.Drawing.Point(269, 492)
         Me.LbWaitTime.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LbWaitTime.Name = "LbWaitTime"
-        Me.LbWaitTime.Size = New System.Drawing.Size(54, 50)
+        Me.LbWaitTime.Size = New System.Drawing.Size(212, 50)
         Me.LbWaitTime.TabIndex = 20
         Me.LbWaitTime.Text = "--"
+        Me.LbWaitTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'MainForm
         '

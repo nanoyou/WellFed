@@ -56,6 +56,11 @@ Namespace AkagawaTsurunaki
                 Public Function GetMemberLogined() As Entity.Member
                     Return MemberLogined
                 End Function
+
+                Public Function FindMemberByTelephone(tel As String) As Entity.Member
+                    Return Mapper.MemberMapper.INSTANCE.SelectMemberByTelephone(tel)
+                End Function
+
             End Class
         End Namespace
     End Namespace

@@ -5,16 +5,27 @@ Public Class PasswordForm
     Private Shared Property CONTROLLER As Controller = Controller.INSTANCE
 
     Private Sub BtnLogin_Click(sender As Object, e As EventArgs) Handles BtnLogin.Click
+
+        If Not password.Length = 6 Then
+            MessageBox.Show("密码为6位数字。", "密码格式错误", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            TxtBoxPsw.Text = ""
+            Return
+        End If
+
         LoginController.INSTANCE.InputPassword(password)
         If LoginController.INSTANCE.Login() Then
             If OrderController.INSTANCE.Pay() Then
                 MessageBox.Show("支付成功，请耐心等待。当您的餐准备好后，本系统会自动呼叫您！", "支付成功", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
                 Me.Close()
+                Return
             Else
                 MessageBox.Show("支付失败，您的余额不足，请到柜台处办理充值！", "支付失败", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Me.Close()
+                Return
             End If
+        Else
+            MessageBox.Show("密码不正确。", "无法登录", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            TxtBoxPsw.Text = ""
         End If
     End Sub
 

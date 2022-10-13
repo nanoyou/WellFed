@@ -22,7 +22,7 @@ Namespace AkagawaTsurunaki
                                       Dim menuItem = New Entity.MenuItem()
                                       menuItem.Price = New Decimal(Int(Rnd() * 60))
                                       menuItem.Name = item
-                                      menuItem.WaitTime = Rnd() * 1000
+                                      menuItem.WaitTime = Rnd() * 10
                                       menuItem.TagIds.Add(tagId)
                                       Mapper.MenuItemMapper.INSTANCE.Insert(menuItem)
                                   Next

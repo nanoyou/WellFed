@@ -43,6 +43,21 @@ Public Class MainForm
     End Sub
 
     Private Sub TimerWait_Tick(sender As Object, e As EventArgs) Handles TimerWait.Tick
-        LbWaitTime.Text -= 1
+        If LbWaitTime.Text = "--" Then
+            Return
+        End If
+
+        If LbWaitTime.Text > 0 Then
+            LbWaitTime.Text -= 1
+            Return
+        End If
+
+        TimerWait.Stop()
+        MessageBox.Show("您的餐品已经准备好了。可以来取餐了！", "取餐时间到", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+    End Sub
+
+    Private Sub BtnClear_Click(sender As Object, e As EventArgs) Handles BtnClear.Click
+        ORDER_CONTROLLER.ClearOrder(LbCost, LbWaitTime, LVOrder)
     End Sub
 End Class
