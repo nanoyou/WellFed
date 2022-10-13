@@ -28,7 +28,7 @@ Partial Class MainForm
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TreeViewMenu = New System.Windows.Forms.TreeView()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.BtnSlct = New System.Windows.Forms.Button()
         Me.LVOrder = New System.Windows.Forms.ListView()
         Me.SuspendLayout()
         '
@@ -93,15 +93,15 @@ Partial Class MainForm
         Me.TreeViewMenu.Size = New System.Drawing.Size(275, 361)
         Me.TreeViewMenu.TabIndex = 16
         '
-        'Button1
+        'BtnSlct
         '
-        Me.Button1.Font = New System.Drawing.Font("微软雅黑", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Button1.Location = New System.Drawing.Point(348, 181)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(66, 69)
-        Me.Button1.TabIndex = 17
-        Me.Button1.Text = "->"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.BtnSlct.Font = New System.Drawing.Font("微软雅黑", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.BtnSlct.Location = New System.Drawing.Point(348, 181)
+        Me.BtnSlct.Name = "BtnSlct"
+        Me.BtnSlct.Size = New System.Drawing.Size(66, 69)
+        Me.BtnSlct.TabIndex = 17
+        Me.BtnSlct.Text = "->"
+        Me.BtnSlct.UseVisualStyleBackColor = True
         '
         'LVOrder
         '
@@ -118,7 +118,7 @@ Partial Class MainForm
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(743, 517)
         Me.Controls.Add(Me.LVOrder)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.BtnSlct)
         Me.Controls.Add(Me.TreeViewMenu)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
@@ -138,6 +138,6 @@ Partial Class MainForm
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents TreeViewMenu As TreeView
-    Friend WithEvents Button1 As Button
+    Friend WithEvents BtnSlct As Button
     Friend WithEvents LVOrder As ListView
 End Class

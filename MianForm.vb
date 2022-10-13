@@ -4,7 +4,10 @@ Imports WellFed.AkagawaTsurunaki.WellFed.Controller
 
 Public Class MainForm
     Private Shared Property menuService As Service.MenuService = Service.MenuService.Instance
-    Private Shared ReadOnly Property CONTROLLER As Controller = Controller.INSTANCE
+    Private Shared ReadOnly Property CONTROLLER As Controller = CONTROLLER.INSTANCE
+    Private Shared ReadOnly Property ORDER_CONTROLLER As OrderController = OrderController.INSTANCE
+
+
 
     Public Shared Sub Run()
         controller.Init()
@@ -21,4 +24,16 @@ Public Class MainForm
         LoginController.INSTANCE.Show(LoginController.WindowType.Telephone)
     End Sub
 
+    Private Sub BtnSlct_Click(sender As Object, e As EventArgs) Handles BtnSlct.Click
+        Dim node = TreeViewMenu.SelectedNode
+
+        If node Is Nothing Then
+            MessageBox.Show("您没有选中任何餐品", "不能加入一个菜单项", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
+
+        If Not ORDER_CONTROLLER.MakeOrder(node) Then
+            MessageBox.Show("您选中的不是一个具体的菜单项", "不能加入一个菜单项", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
+    End Sub
 End Class

@@ -1,6 +1,7 @@
 ﻿Imports System.Reflection
 Imports WellFed
 Imports WellFed.AkagawaTsurunaki.WellFed.Entity
+Imports WellFed.AkagawaTsurunaki.WellFed.Mapper
 Imports WellFed.AkagawaTsurunaki.WellFed.Interfaces
 Imports WellFed.AkagawaTsurunaki.WellFed.WellDataBase
 
@@ -10,7 +11,8 @@ Namespace AkagawaTsurunaki
             Public Class MenuService : Implements Interfaces.PreGenerator
 
                 Public Shared ReadOnly Property Instance = New MenuService()
-                ' Private Shared Property menuTable As Table(Of Entity.MenuItem)
+
+                Private Shared ReadOnly Property MENU_ITEM_MAPPER As MenuItemMapper = MenuItemMapper.INSTANCE
 
                 Public Sub PreGenerate() Implements PreGenerator.PreGenerate
 
@@ -81,7 +83,7 @@ Namespace AkagawaTsurunaki
                     Dim leafTagList = Mapper.TagMapper.INSTANCE.SelectLeafTags()
 
                     For Each t In leafTagList
-                        Dim menuList = Mapper.MenuItemMapper.INSTANCE.SelectMenuItemByTag(t.Id)
+                        Dim menuList = Mapper.MenuItemMapper.INSTANCE.SelectByTag(t.Id)
 
                         For Each m In menuList
                             Dim nd = Util.WellFedHelper.FindNode(node, t.Name)
@@ -93,6 +95,11 @@ Namespace AkagawaTsurunaki
 
 
                 End Sub
+
+                Public Function FindMenuByName(name As String) As MenuItem
+                    Return MENU_ITEM_MAPPER.SelectByName(name)
+                End Function
+
 
             End Class
         End Namespace

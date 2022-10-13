@@ -72,6 +72,21 @@ Namespace AkagawaTsurunaki
 
                 Public Property DishList As New List(Of Dish)
 
+                ''' <summary>
+                ''' 为订单添加一款菜单项, 相同的菜单项将会被合并
+                ''' </summary>
+                ''' <param name="mi"></param>
+                Public Sub AddDish(mi As MenuItem)
+                    For Each d In DishList
+                        If d.Item.Id = mi.Id Then
+                            d.Count += 1
+                            Return
+                        End If
+                    Next
+                    DishList.Add(New Dish(mi, 1))
+                End Sub
+
+
                 ' 订单价格
                 Public ReadOnly Property Cost As Decimal
                     Get
