@@ -5,7 +5,7 @@ Namespace AkagawaTsurunaki
         Namespace Mapper
             Public Class Mapper(Of T As Entity.HasPrimaryKey)
 
-                Private Property table As WellDataBase.Table(Of T)
+                Protected Property table As WellDataBase.Table(Of T)
 
                 ''' <summary>
                 ''' 保护的构造器
@@ -36,7 +36,7 @@ Namespace AkagawaTsurunaki
                 ''' <param name="record"></param>
                 ''' <returns></returns>
                 Public Function Insert(ByRef record As T)
-                    Return table.Insert(record)
+                    Return table.InsertRecord(record)
                 End Function
 
                 ''' <summary>
@@ -51,6 +51,15 @@ Namespace AkagawaTsurunaki
                         End If
                     Next
                     Return True
+                End Function
+
+                ''' <summary>
+                ''' 以主键ID查询一个记录
+                ''' </summary>
+                ''' <param name="id"></param>
+                ''' <returns></returns>
+                Public Function SelectRecord(ByVal id As UInteger) As T
+                    Return table.SelectRecord(id)
                 End Function
 
                 ''' <summary>

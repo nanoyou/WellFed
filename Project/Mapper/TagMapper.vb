@@ -4,7 +4,7 @@ Namespace AkagawaTsurunaki
     Namespace WellFed
         Namespace Mapper
             Public Class TagMapper : Inherits Mapper.Mapper(Of Entity.Tag)
-                Public Shared ReadOnly Property Instance As TagMapper = New TagMapper()
+                Public Shared ReadOnly Property INSTANCE As TagMapper = New TagMapper()
 
                 ''' <summary>
                 ''' 返回根标签

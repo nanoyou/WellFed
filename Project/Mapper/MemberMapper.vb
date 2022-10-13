@@ -6,8 +6,7 @@ Namespace AkagawaTsurunaki
             Public Class MemberMapper : Inherits Mapper.Mapper(Of Entity.Member)
 
 
-                Public Shared ReadOnly Property Instance As MemberMapper = New MemberMapper()
-                Private Shared Property table As Table(Of Entity.Member)
+                Public Shared ReadOnly Property INSTANCE As MemberMapper = New MemberMapper()
 
                 Private Sub New()
 
