@@ -1,5 +1,6 @@
 ﻿Imports Microsoft.VisualBasic
 Imports System.Collections.Generic
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 
 ' @author 软件2107班 张轩赫 20216875 
 ' @github AkagawaTsurunaki
@@ -53,13 +54,45 @@ Namespace AkagawaTsurunaki
             End Class
 
 
+            Public Class Order : Implements HasPrimaryKey
+                Private Property orderId As UInteger
+
+                Public Property MemberId As UInteger
+
+                Public Class Dish
+
+                    Public Sub New(itm As MenuItem, cnt As Integer)
+                        Item = itm
+                        Count = cnt
+                    End Sub
+
+                    Public Property Item As MenuItem
+                    Public Property Count As Integer
+                End Class
+
+                Public Property DishList As New List(Of Dish)
+
+                ' 订单价格
+                Public ReadOnly Property Cost As Decimal
+                    Get
+                        Dim ret As New Decimal(0)
+                        For Each d In DishList
+                            ret += CDec(d.Count) * d.Item.Price
+                        Next
+                        Return ret
+                    End Get
+                End Property
+
+                Public Property Id As UInteger Implements HasPrimaryKey.PrimaryKey
+                    Get
+                        Return orderId
+                    End Get
+                    Set(value As UInteger)
+                        orderId = value
+                    End Set
+                End Property
 
 
-
-            Public Class Order
-                Public Property Id As UInteger
-                Public Property MenuItemId As UInteger
-                Public Property WaitTime As UInteger
             End Class
         End Namespace
     End Namespace
