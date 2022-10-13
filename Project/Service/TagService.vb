@@ -7,7 +7,7 @@ Namespace AkagawaTsurunaki
                 Public Shared ReadOnly Property Instance As TagService = New TagService()
 
                 Public Sub Init()
-                    Mapper.TagMapper.Instance.Init()
+                    Mapper.TagMapper.INSTANCE.Init()
                     PreGenerate()
                 End Sub
 
@@ -20,7 +20,7 @@ Namespace AkagawaTsurunaki
                 ''' <param name="name"></param>
                 ''' <returns></returns>
                 Public Function FindTagByName(ByVal name As String) As List(Of Entity.Tag)
-                    Dim list = Mapper.TagMapper.Instance.FindTags()
+                    Dim list = Mapper.TagMapper.INSTANCE.FindTags()
                     Dim result As New List(Of Entity.Tag)
                     For Each tag In list
                         If tag.Name = name Then
@@ -39,34 +39,27 @@ Namespace AkagawaTsurunaki
                                           End Function
                     Dim rootTag As New Entity.Tag("餐饮类别", 1)
                     rootTag.ParentTagId = 0
-                    Mapper.TagMapper.Instance.AddTag(rootTag)
+                    Mapper.TagMapper.INSTANCE.Insert(rootTag)
 
-                    Mapper.TagMapper.Instance.AddTag(setSonAndParent.Invoke("主食", "餐饮类别"))
-                    Mapper.TagMapper.Instance.AddTag(setSonAndParent.Invoke("菜品", "餐饮类别"))
-                    Mapper.TagMapper.Instance.AddTag(setSonAndParent.Invoke("饮品", "餐饮类别"))
+                    Mapper.TagMapper.INSTANCE.Insert(setSonAndParent.Invoke("主食", "餐饮类别"))
+                    Mapper.TagMapper.INSTANCE.Insert(setSonAndParent.Invoke("菜品", "餐饮类别"))
+                    Mapper.TagMapper.INSTANCE.Insert(setSonAndParent.Invoke("饮品", "餐饮类别"))
 
-                    Mapper.TagMapper.Instance.AddTag(setSonAndParent.Invoke("粥", "主食"))
-                    Mapper.TagMapper.Instance.AddTag(setSonAndParent.Invoke("包子", "主食"))
-                    Mapper.TagMapper.Instance.AddTag(setSonAndParent.Invoke("馄饨", "主食"))
-                    Mapper.TagMapper.Instance.AddTag(setSonAndParent.Invoke("饼", "主食"))
+                    Mapper.TagMapper.INSTANCE.Insert(setSonAndParent.Invoke("粥", "主食"))
+                    Mapper.TagMapper.INSTANCE.Insert(setSonAndParent.Invoke("包子", "主食"))
+                    Mapper.TagMapper.INSTANCE.Insert(setSonAndParent.Invoke("馄饨", "主食"))
+                    Mapper.TagMapper.INSTANCE.Insert(setSonAndParent.Invoke("饼", "主食"))
 
-                    Mapper.TagMapper.Instance.AddTag(setSonAndParent.Invoke("凉拌菜", "菜品"))
-                    Mapper.TagMapper.Instance.AddTag(setSonAndParent.Invoke("蛋", "菜品"))
+                    Mapper.TagMapper.INSTANCE.Insert(setSonAndParent.Invoke("凉拌菜", "菜品"))
+                    Mapper.TagMapper.INSTANCE.Insert(setSonAndParent.Invoke("蛋", "菜品"))
 
-                    Mapper.TagMapper.Instance.AddTag(setSonAndParent.Invoke("豆浆", "饮品"))
-                    Mapper.TagMapper.Instance.AddTag(setSonAndParent.Invoke("矿泉水", "饮品"))
-                    Mapper.TagMapper.Instance.AddTag(setSonAndParent.Invoke("牛奶", "饮品"))
+                    Mapper.TagMapper.INSTANCE.Insert(setSonAndParent.Invoke("豆浆", "饮品"))
+                    Mapper.TagMapper.INSTANCE.Insert(setSonAndParent.Invoke("矿泉水", "饮品"))
+                    Mapper.TagMapper.INSTANCE.Insert(setSonAndParent.Invoke("牛奶", "饮品"))
 
 
-                    Mapper.TagMapper.Instance.Print()
+                    Mapper.TagMapper.INSTANCE.Print()
                 End Sub
-
-                Public Function GetRootTag() As Entity.Tag
-
-
-                End Function
-
-
 
             End Class
         End Namespace

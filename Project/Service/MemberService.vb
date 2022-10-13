@@ -11,7 +11,7 @@ Namespace AkagawaTsurunaki
                 Public Shared Property MemberLogined As Entity.Member
 
                 Public Sub Init()
-                    Mapper.MemberMapper.Instance.Init()
+                    Mapper.MemberMapper.INSTANCE.Init("member_table")
                     PreGenerate()
                 End Sub
 
@@ -25,7 +25,7 @@ Namespace AkagawaTsurunaki
                 ''' <param name="md5Password">会员密码</param>
                 ''' <returns>是否登陆成功</returns>
                 Public Function Login(ByVal telephone As String, ByVal md5Password As String) As Boolean
-                    Dim member = Mapper.MemberMapper.Instance.FindMemberByTelephone(telephone)
+                    Dim member = Mapper.MemberMapper.INSTANCE.SelectMemberByTelephone(telephone)
                     If member Is Nothing Then
                         Return False
                     End If
@@ -48,9 +48,9 @@ Namespace AkagawaTsurunaki
                         m.Telephone = CLng((20000000000 - 10000000000 + 1) * Rnd() + 10000000000).ToString
                         m.Balance = New Decimal(Rnd() * 100)
                         m.PassWord = Int((999999 - 100000 + 1) * Rnd() + 100000).ToString
-                        Mapper.MemberMapper.Instance.InsertMember(m)
+                        Mapper.MemberMapper.INSTANCE.Insert(m)
                     Next
-                    Mapper.MemberMapper.Instance.Print()
+                    Mapper.MemberMapper.INSTANCE.Print()
                 End Sub
             End Class
         End Namespace

@@ -22,7 +22,7 @@ Namespace AkagawaTsurunaki
                                       menuItem.Name = item
                                       menuItem.WaitTime = Rnd() * 1000
                                       menuItem.TagIds.Add(tagId)
-                                      Mapper.MenuItemMapper.Instance.InsertMember(menuItem)
+                                      Mapper.MenuItemMapper.INSTANCE.Insert(menuItem)
                                   Next
                               End Function
 
@@ -41,28 +41,28 @@ Namespace AkagawaTsurunaki
                     fun.Invoke("矿泉水", {"矿泉水"})
                     fun.Invoke("牛奶", {"热牛奶", "凉牛奶"})
 
-                    Mapper.MenuItemMapper.Instance.Print()
+                    Mapper.MenuItemMapper.INSTANCE.Print()
                 End Sub
 
-                Public Function Init()
-                    Mapper.MenuItemMapper.Instance.Init()
+                Public Sub Init()
+                    Mapper.MenuItemMapper.INSTANCE.Init("menu_item_table")
                     PreGenerate()
-                End Function
+                End Sub
                 ''' <summary>
                 ''' 获取一个拥有所有菜单项的TreeView
                 ''' </summary>
                 ''' <returns></returns>
                 Public Function GetTreeNodeWithAllMenuItems(ByRef tv As TreeView)
-                    Dim menuItemList = Mapper.MenuItemMapper.Instance.SelectAll()
-                    Dim rootTag = Mapper.TagMapper.Instance.SelectRootTag()
+                    Dim menuItemList = Mapper.MenuItemMapper.INSTANCE.SelectAll()
+                    Dim rootTag = Mapper.TagMapper.INSTANCE.SelectRootTag()
                     Dim rootNode As New TreeNode(rootTag.Name)
                     tv.Nodes.Add(rootNode)
                     RecursivelyGetTreeNode(tv.Nodes, rootTag, 0)
-                    fun(rootNode)
+                    WriteLeafNodeWithMenuItem(rootNode)
                 End Function
 
                 Function RecursivelyGetTreeNode(ByRef nd As TreeNodeCollection, pTag As Entity.Tag, ByVal count As Integer)
-                    Dim tagList = Mapper.TagMapper.Instance.SelectTagsByParentId(pTag.Id)
+                    Dim tagList = Mapper.TagMapper.INSTANCE.SelectTagsByParentId(pTag.Id)
                     ' 如果已经递归到底, 则直接返回
                     If tagList.Count = 0 Then
                         Return True
@@ -76,12 +76,12 @@ Namespace AkagawaTsurunaki
                     Return False
                 End Function
 
-                Sub fun(ByRef node As TreeNode)
+                Sub WriteLeafNodeWithMenuItem(ByRef node As TreeNode)
 
-                    Dim leafTagList = Mapper.TagMapper.Instance.SelectLeafTags()
+                    Dim leafTagList = Mapper.TagMapper.INSTANCE.SelectLeafTags()
 
                     For Each t In leafTagList
-                        Dim menuList = Mapper.MenuItemMapper.Instance.SelectMenuItemByTag(t.Id)
+                        Dim menuList = Mapper.MenuItemMapper.INSTANCE.SelectMenuItemByTag(t.Id)
 
                         For Each m In menuList
                             Dim nd = Util.WellFedHelper.FindNode(node, t.Name)
