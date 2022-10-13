@@ -20,7 +20,7 @@
                     Return table
                 End Function
 
-                Public Function Insert(ByRef record As T) As Boolean
+                Public Function InsertRecord(ByRef record As T) As Boolean
                     If record Is Nothing Then
                         Throw New ArgumentNullException("插入的数据不应该为空")
                     End If
