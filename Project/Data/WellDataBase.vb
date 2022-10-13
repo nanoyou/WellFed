@@ -1,8 +1,9 @@
-﻿Namespace AkagawaTsurunaki
+﻿Imports WellFed.AkagawaTsurunaki.WellFed.Interfaces
+Namespace AkagawaTsurunaki
 
     Namespace WellFed
         Namespace WellDataBase
-            Public Class Table(Of T As Entity.HasPrimaryKey)
+            Public Class Table(Of T As HasPrimaryKey)
 
                 Public Property TableName As String
                 Public Property PrimaryKey As UInteger
@@ -44,7 +45,7 @@
                     Return RecordList
                 End Function
 
-                Public Function Print()
+                Public Sub Print()
                     Console.WriteLine()
                     Console.WriteLine($"表名{TableName}")
                     For Each record In RecordList
@@ -52,7 +53,7 @@
                         Console.WriteLine($"主键{record.PrimaryKey}")
                         Console.WriteLine($"主键{record.ToString()}")
                     Next
-                End Function
+                End Sub
 
             End Class
         End Namespace

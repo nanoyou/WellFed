@@ -1,9 +1,10 @@
 ﻿Imports WellFed.AkagawaTsurunaki.WellFed
+Imports WellFed.AkagawaTsurunaki.WellFed.Interfaces
 
 Namespace AkagawaTsurunaki
     Namespace WellFed
         Namespace Mapper
-            Public Class Mapper(Of T As Entity.HasPrimaryKey)
+            Public Class Mapper(Of T As HasPrimaryKey)
 
                 Protected Property table As WellDataBase.Table(Of T)
 

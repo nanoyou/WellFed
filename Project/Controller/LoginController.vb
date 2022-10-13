@@ -45,14 +45,14 @@
                     Password
                 End Enum
 
-                Public Function Show(wt As WindowType)
+                Public Sub Show(wt As WindowType)
                     Select Case wt
                         Case WindowType.Telephone
                             TelephoneForm.Show()
                         Case WindowType.Password
                             PasswordForm.Show()
                     End Select
-                End Function
+                End Sub
 
             End Class
         End Namespace

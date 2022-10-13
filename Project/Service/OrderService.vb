@@ -36,9 +36,9 @@ Namespace AkagawaTsurunaki
                     Return order
                 End Function
 
-                Public Function ClearOrder()
+                Public Sub ClearOrder()
                     order = New Order()
-                End Function
+                End Sub
 
             End Class
         End Namespace

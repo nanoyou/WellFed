@@ -48,12 +48,12 @@ Namespace AkagawaTsurunaki
                     Return False
                 End Function
 
-                Public Function ClearOrder(ByRef lb As Label, ByRef tm As Label, ByRef lv As ListView)
+                Public Sub ClearOrder(ByRef lb As Label, ByRef tm As Label, ByRef lv As ListView)
                     ORDER_SERVICE.ClearOrder()
                     lb.Text = ORDER_SERVICE.GetCurrentOrder().Cost
                     tm.Text = ORDER_SERVICE.GetCurrentOrder().WaitTime
                     lv.Clear()
-                End Function
+                End Sub
 
             End Class
         End Namespace

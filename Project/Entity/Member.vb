@@ -1,4 +1,6 @@
-﻿Namespace AkagawaTsurunaki
+﻿Imports WellFed.AkagawaTsurunaki.WellFed.Interfaces
+
+Namespace AkagawaTsurunaki
     Namespace WellFed
         Namespace Entity
             Public Class Member : Implements HasPrimaryKey

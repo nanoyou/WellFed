@@ -1,6 +1,7 @@
 ﻿
 Imports WellFed.AkagawaTsurunaki.WellFed.WellDataBase
 Imports WellFed.AkagawaTsurunaki.WellFed.Entity
+Imports WellFed.AkagawaTsurunaki.WellFed.Interfaces
 
 Namespace AkagawaTsurunaki
     Namespace WellFed

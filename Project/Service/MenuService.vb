@@ -16,7 +16,7 @@ Namespace AkagawaTsurunaki
 
                 Public Sub PreGenerate() Implements PreGenerator.PreGenerate
 
-                    Dim fun = Function(ByVal tagName As String, ByRef items As String())
+                    Dim fun = Sub(ByVal tagName As String, ByRef items As String())
                                   For Each item In items
                                       Dim tagId = TagService.Instance.FindTagByName(tagName).First.tagId
                                       Dim menuItem = New Entity.MenuItem()
@@ -26,7 +26,7 @@ Namespace AkagawaTsurunaki
                                       menuItem.TagIds.Add(tagId)
                                       Mapper.MenuItemMapper.INSTANCE.Insert(menuItem)
                                   Next
-                              End Function
+                              End Sub
 
                     ' 主食
                     fun.Invoke("粥", {"小米粥", "皮蛋瘦肉粥", "八宝粥", "黑米粥", "绿豆粥"})
@@ -53,15 +53,14 @@ Namespace AkagawaTsurunaki
                 ''' <summary>
                 ''' 获取一个拥有所有菜单项的TreeView
                 ''' </summary>
-                ''' <returns></returns>
-                Public Function GetTreeNodeWithAllMenuItems(ByRef tv As TreeView)
+                Public Sub GetTreeNodeWithAllMenuItems(ByRef tv As TreeView)
                     Dim menuItemList = Mapper.MenuItemMapper.INSTANCE.SelectAll()
                     Dim rootTag = Mapper.TagMapper.INSTANCE.SelectRootTag()
                     Dim rootNode As New TreeNode(rootTag.Name)
                     tv.Nodes.Add(rootNode)
                     RecursivelyGetTreeNode(tv.Nodes, rootTag, 0)
                     WriteLeafNodeWithMenuItem(rootNode)
-                End Function
+                End Sub
 
                 Function RecursivelyGetTreeNode(ByRef nd As TreeNodeCollection, pTag As Entity.Tag, ByVal count As Integer)
                     Dim tagList = Mapper.TagMapper.INSTANCE.SelectTagsByParentId(pTag.Id)
