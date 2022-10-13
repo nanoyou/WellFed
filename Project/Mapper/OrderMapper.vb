@@ -14,9 +14,6 @@ Namespace AkagawaTsurunaki
                 End Sub
 
 
-
-
-
             End Class
         End Namespace
     End Namespace

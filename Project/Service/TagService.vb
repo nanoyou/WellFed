@@ -7,7 +7,7 @@ Namespace AkagawaTsurunaki
                 Public Shared ReadOnly Property Instance As TagService = New TagService()
 
                 Public Sub Init()
-                    Mapper.TagMapper.INSTANCE.Init()
+                    Mapper.TagMapper.INSTANCE.Init("tag_table")
                     PreGenerate()
                 End Sub
 
@@ -20,7 +20,7 @@ Namespace AkagawaTsurunaki
                 ''' <param name="name"></param>
                 ''' <returns></returns>
                 Public Function FindTagByName(ByVal name As String) As List(Of Entity.Tag)
-                    Dim list = Mapper.TagMapper.INSTANCE.FindTags()
+                    Dim list = Mapper.TagMapper.INSTANCE.SelectAll()
                     Dim result As New List(Of Entity.Tag)
                     For Each tag In list
                         If tag.Name = name Then
