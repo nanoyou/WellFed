@@ -1,5 +1,6 @@
 ﻿
 Imports WellFed.AkagawaTsurunaki.WellFed.WellDataBase
+Imports WellFed.AkagawaTsurunaki.WellFed.Entity
 
 Namespace AkagawaTsurunaki
     Namespace WellFed
@@ -23,6 +24,20 @@ Namespace AkagawaTsurunaki
                         Next
                     Next
                     Return result
+                End Function
+
+                ''' <summary>
+                ''' 根据名称查询菜单项
+                ''' </summary>
+                ''' <param name="name"></param>
+                ''' <returns></returns>
+                Public Function SelectByName(name As String) As MenuItem
+                    For Each menuItem In SelectAll()
+                        If menuItem.Name = name Then
+                            Return menuItem
+                        End If
+                    Next
+                    Return Nothing
                 End Function
 
             End Class
