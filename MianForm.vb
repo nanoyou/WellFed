@@ -7,6 +7,7 @@ Public Class MainForm
     Private Shared ReadOnly Property CONTROLLER As Controller = CONTROLLER.INSTANCE
     Private Shared ReadOnly Property ORDER_CONTROLLER As OrderController = OrderController.INSTANCE
 
+    Private Shared ReadOnly Property isPay As Boolean = False
 
 
     Public Shared Sub Run()
@@ -32,8 +33,16 @@ Public Class MainForm
             Return
         End If
 
-        If Not ORDER_CONTROLLER.MakeOrder(node) Then
+        If Not ORDER_CONTROLLER.MakeOrder(node, LVOrder) Then
             MessageBox.Show("您选中的不是一个具体的菜单项", "不能加入一个菜单项", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
         End If
+
+        ORDER_CONTROLLER.SettleUp(LbCost, LbWaitTime)
+
+    End Sub
+
+    Private Sub TimerWait_Tick(sender As Object, e As EventArgs) Handles TimerWait.Tick
+        LbWaitTime.Text -= 1
     End Sub
 End Class

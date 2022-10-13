@@ -22,14 +22,19 @@ Partial Class MainForm
     '不要使用代码编辑器修改它。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.BtnConfirm = New System.Windows.Forms.Button()
         Me.BtnClear = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.LbCost = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TreeViewMenu = New System.Windows.Forms.TreeView()
         Me.BtnSlct = New System.Windows.Forms.Button()
         Me.LVOrder = New System.Windows.Forms.ListView()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.TimerWait = New System.Windows.Forms.Timer(Me.components)
+        Me.LbWaitTime = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'BtnConfirm
@@ -57,29 +62,29 @@ Partial Class MainForm
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(262, 427)
+        Me.Label1.Location = New System.Drawing.Point(259, 427)
         Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(53, 12)
         Me.Label1.TabIndex = 9
         Me.Label1.Text = "总价格为"
         '
-        'Label2
+        'LbCost
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("微软雅黑", 28.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label2.Location = New System.Drawing.Point(330, 448)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(75, 50)
-        Me.Label2.TabIndex = 10
-        Me.Label2.Text = "0.0"
+        Me.LbCost.AutoSize = True
+        Me.LbCost.Font = New System.Drawing.Font("微软雅黑", 28.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.LbCost.Location = New System.Drawing.Point(339, 427)
+        Me.LbCost.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.LbCost.Name = "LbCost"
+        Me.LbCost.Size = New System.Drawing.Size(75, 50)
+        Me.LbCost.TabIndex = 10
+        Me.LbCost.Text = "0.0"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("微软雅黑", 28.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label3.Location = New System.Drawing.Point(422, 448)
+        Me.Label3.Location = New System.Drawing.Point(422, 427)
         Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(60, 50)
@@ -105,23 +110,64 @@ Partial Class MainForm
         '
         'LVOrder
         '
+        Me.LVOrder.AutoArrange = False
         Me.LVOrder.HideSelection = False
         Me.LVOrder.Location = New System.Drawing.Point(431, 30)
         Me.LVOrder.Name = "LVOrder"
         Me.LVOrder.Size = New System.Drawing.Size(257, 361)
         Me.LVOrder.TabIndex = 18
         Me.LVOrder.UseCompatibleStateImageBehavior = False
+        Me.LVOrder.View = System.Windows.Forms.View.List
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(259, 497)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(53, 12)
+        Me.Label2.TabIndex = 19
+        Me.Label2.Text = "预计等待"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("微软雅黑", 28.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label4.Location = New System.Drawing.Point(422, 492)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(60, 50)
+        Me.Label4.TabIndex = 21
+        Me.Label4.Text = "秒"
+        '
+        'TimerWait
+        '
+        Me.TimerWait.Interval = 1000
+        '
+        'LbWaitTime
+        '
+        Me.LbWaitTime.AutoSize = True
+        Me.LbWaitTime.Font = New System.Drawing.Font("微软雅黑", 28.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.LbWaitTime.Location = New System.Drawing.Point(339, 492)
+        Me.LbWaitTime.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.LbWaitTime.Name = "LbWaitTime"
+        Me.LbWaitTime.Size = New System.Drawing.Size(54, 50)
+        Me.LbWaitTime.TabIndex = 20
+        Me.LbWaitTime.Text = "--"
         '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(743, 517)
+        Me.ClientSize = New System.Drawing.Size(743, 551)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.LbWaitTime)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.LVOrder)
         Me.Controls.Add(Me.BtnSlct)
         Me.Controls.Add(Me.TreeViewMenu)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.LbCost)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.BtnClear)
         Me.Controls.Add(Me.BtnConfirm)
@@ -135,9 +181,13 @@ Partial Class MainForm
     Friend WithEvents BtnConfirm As Button
     Friend WithEvents BtnClear As Button
     Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
+    Friend WithEvents LbCost As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents TreeViewMenu As TreeView
     Friend WithEvents BtnSlct As Button
     Friend WithEvents LVOrder As ListView
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents TimerWait As Timer
+    Friend WithEvents LbWaitTime As Label
 End Class

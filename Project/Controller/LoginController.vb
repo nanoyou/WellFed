@@ -27,13 +27,11 @@
                 End Function
 
                 Public Function Login() As Boolean
-                    InputTelephone(telephone)
-                    InputPassword(rawPassword)
                     If Not MEMBER_SERVICE.Login(telephone, rawPassword) Then
                         MessageBox.Show("请检查您的手机号和密码是否正确。", "无法登录", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Return False
                     End If
-                    MessageBox.Show("登录成功！已成功下单！", "登录成功", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    MessageBox.Show("登录成功！准备下单！", "登录成功", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Return True
                 End Function
 
@@ -50,7 +48,6 @@
                         Case WindowType.Password
                             PasswordForm.Show()
                     End Select
-
                 End Function
 
             End Class

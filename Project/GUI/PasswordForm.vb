@@ -2,12 +2,20 @@
 Public Class PasswordForm
     Private Property password As String = ""
 
-    Private Shared Property CONTROLLER As Controller = Controller.Instance
+    Private Shared Property CONTROLLER As Controller = Controller.INSTANCE
 
     Private Sub BtnLogin_Click(sender As Object, e As EventArgs) Handles BtnLogin.Click
         LoginController.INSTANCE.InputPassword(password)
-        MessageBox.Show("登录成功！已为您自动付款下单！", "登陆成功", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
-        Me.Close()
+        If LoginController.INSTANCE.Login() Then
+            If OrderController.INSTANCE.Pay() Then
+                MessageBox.Show("支付成功，请耐心等待。当您的餐准备好后，本系统会自动呼叫您！", "支付成功", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+                Me.Close()
+            Else
+                MessageBox.Show("支付失败，您的余额不足，请到柜台处办理充值！", "支付失败", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Me.Close()
+            End If
+        End If
     End Sub
 
     Private Sub UpdateInputText()
@@ -68,9 +76,5 @@ Public Class PasswordForm
     Private Sub Btn9_Click(sender As Object, e As EventArgs) Handles Btn9.Click
         password += "9"
         UpdateInputText()
-    End Sub
-
-    Private Sub TxtBoxPsw_TextChanged(sender As Object, e As EventArgs) Handles TxtBoxPsw.TextChanged
-
     End Sub
 End Class

@@ -36,6 +36,7 @@
                     If money > Balance Then
                         Return False
                     End If
+                    Balance -= money
                     Return True
                 End Function
 

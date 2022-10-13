@@ -56,9 +56,7 @@ Namespace AkagawaTsurunaki
 
             Public Class Order : Implements HasPrimaryKey
                 Private Property orderId As UInteger
-
                 Public Property MemberId As UInteger
-
                 Public Class Dish
 
                     Public Sub New(itm As MenuItem, cnt As Integer)
@@ -98,6 +96,16 @@ Namespace AkagawaTsurunaki
                     End Get
                 End Property
 
+                Public ReadOnly Property WaitTime As UInteger
+                    Get
+                        Dim ret As UInteger
+                        For Each d In DishList
+                            ret += d.Item.WaitTime * d.Count
+                        Next
+                        Return ret
+                    End Get
+                End Property
+
                 Public Property Id As UInteger Implements HasPrimaryKey.PrimaryKey
                     Get
                         Return orderId
@@ -107,6 +115,13 @@ Namespace AkagawaTsurunaki
                     End Set
                 End Property
 
+                Public Function ToPlain() As List(Of String)
+                    Dim ret As New List(Of String)
+                    For Each d In DishList
+                        ret.Add($"{d.Item.Name} * {d.Count}")
+                    Next
+                    Return ret
+                End Function
 
             End Class
         End Namespace

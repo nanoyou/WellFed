@@ -52,6 +52,10 @@ Namespace AkagawaTsurunaki
                     Next
                     Mapper.MemberMapper.INSTANCE.Print()
                 End Sub
+
+                Public Function GetMemberLogined() As Entity.Member
+                    Return MemberLogined
+                End Function
             End Class
         End Namespace
     End Namespace
