@@ -5,7 +5,7 @@
 
                 Public Shared ReadOnly Property INSTANCE As LoginController = New LoginController()
                 Private Shared Property telephone As String
-                Private Shared ReadOnly Property MEMBER_SERVICE As Service.MemberService = Service.MemberService.Instance
+                Private Shared ReadOnly Property MEMBER_SERVICE As Service.MemberService = Service.MemberService.INSTANCE
                 Private Shared Property rawPassword As String
 
                 Public Function InputTelephone(ByVal tel As String) As Boolean
