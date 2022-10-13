@@ -84,7 +84,7 @@ Namespace AkagawaTsurunaki
                         Dim menuList = Mapper.MenuItemMapper.Instance.SelectMenuItemByTag(t.Id)
 
                         For Each m In menuList
-                            Dim nd = FindNode(node, t.Name)
+                            Dim nd = Util.WellFedHelper.FindNode(node, t.Name)
                             If nd IsNot Nothing Then
                                 nd.Nodes.Add(m.ToPlain())
                             End If
@@ -93,24 +93,6 @@ Namespace AkagawaTsurunaki
 
 
                 End Sub
-
-
-                Function FindNode(ByRef node As TreeNode, name As String) As TreeNode
-                    Dim ret As TreeNode = Nothing
-                    For Each t As TreeNode In node.Nodes
-                        If Not t.Nodes.Count = 0 Then
-                            ret = FindNode(t, name)
-                            If ret IsNot Nothing Then
-                                Return ret
-                            End If
-                        End If
-                        If t.Text = name Then
-                            Return t
-                        End If
-                    Next
-                    Return ret
-                End Function
-
 
             End Class
         End Namespace
