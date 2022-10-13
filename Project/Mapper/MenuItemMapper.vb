@@ -19,7 +19,7 @@ Namespace AkagawaTsurunaki
                     menuItemTable.Print()
                 End Sub
 
-                Public Function SelectAll()
+                Public Function SelectAll() As List(Of Entity.MenuItem)
                     Return menuItemTable.RecordList
                 End Function
 
