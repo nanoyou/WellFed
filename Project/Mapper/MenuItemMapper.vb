@@ -14,7 +14,7 @@ Namespace AkagawaTsurunaki
                 ''' </summary>
                 ''' <param name="tagId"></param>
                 ''' <returns></returns>
-                Public Function SelectMenuItemByTag(tagId As UInteger) As List(Of Entity.MenuItem)
+                Public Function SelectByTag(tagId As UInteger) As List(Of Entity.MenuItem)
                     Dim result = New List(Of Entity.MenuItem)
                     For Each m In table.RecordList
                         For Each tagIdInMenuItem In m.TagIds
