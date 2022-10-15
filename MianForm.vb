@@ -2,6 +2,12 @@
 Imports WellFed.AkagawaTsurunaki.WellFed.Service
 Imports WellFed.AkagawaTsurunaki.WellFed.Controller
 
+
+''' <summary>
+''' Github @ AkagawaTsurunaki
+''' From Northeastern University in LiaoNing, China
+''' </summary>
+
 Public Class MainForm
     Private Shared Property menuService As Service.MenuService = Service.MenuService.Instance
     Private Shared ReadOnly Property CONTROLLER As Controller = CONTROLLER.INSTANCE
