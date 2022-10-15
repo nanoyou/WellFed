@@ -173,7 +173,7 @@ Partial Class MainForm
         Me.Controls.Add(Me.BtnConfirm)
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "MainForm"
-        Me.Text = "Form1"
+        Me.Text = "吃得饱 - 吃得好, 就来吃得饱! 一顿管饱, 两顿吃好!"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
