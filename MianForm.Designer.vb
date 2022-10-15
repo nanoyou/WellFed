@@ -40,7 +40,7 @@ Partial Class MainForm
         'BtnConfirm
         '
         Me.BtnConfirm.Font = New System.Drawing.Font("微软雅黑", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.BtnConfirm.Location = New System.Drawing.Point(54, 427)
+        Me.BtnConfirm.Location = New System.Drawing.Point(60, 427)
         Me.BtnConfirm.Margin = New System.Windows.Forms.Padding(2)
         Me.BtnConfirm.Name = "BtnConfirm"
         Me.BtnConfirm.Size = New System.Drawing.Size(67, 71)
