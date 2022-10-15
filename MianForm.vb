@@ -15,6 +15,12 @@ Public Class MainForm
     End Sub
     Private Sub Form_Load(ByVal sender As Object,
     ByVal e As System.EventArgs) Handles MyBase.Load
+
+        If Not ("6:00" < TimeOfDay And TimeOfDay < "10:00") Then
+            MessageBox.Show("营业时间为6:00~10:00，给您带来不便非常抱歉！", "不在营业时间内", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Me.Close()
+        End If
+
         Run()
         menuService.GetTreeNodeWithAllMenuItems(TreeViewMenu)
         TreeViewMenu.Refresh()
