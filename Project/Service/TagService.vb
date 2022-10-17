@@ -1,10 +1,11 @@
 ﻿Imports WellFed.AkagawaTsurunaki.WellFed.Interfaces
+Imports WellFed.AkagawaTsurunaki.WellFed.Entity
 
 Namespace AkagawaTsurunaki
     Namespace WellFed
         Namespace Service
             Public Class TagService : Implements Interfaces.PreGenerator
-                Public Shared ReadOnly Property INSTANCE As TagService = New TagService()
+                Public Shared ReadOnly Property Instance As TagService = New TagService()
 
                 Public Sub Init()
                     Mapper.TagMapper.INSTANCE.Init("tag_table")
@@ -19,9 +20,9 @@ Namespace AkagawaTsurunaki
                 ''' </summary>
                 ''' <param name="name"></param>
                 ''' <returns></returns>
-                Public Function FindTagByName(ByVal name As String) As List(Of Entity.Tag)
-                    Dim list = Mapper.TagMapper.INSTANCE.SelectAll()
-                    Dim result As New List(Of Entity.Tag)
+                Public Function FindTagByName(ByVal name As String) As List(Of Tag)
+                    Dim list As List(Of Tag) = Mapper.TagMapper.INSTANCE.SelectAll()
+                    Dim result As New List(Of Tag)
                     For Each tag In list
                         If tag.Name = name Then
                             result.Add(tag)
@@ -33,11 +34,11 @@ Namespace AkagawaTsurunaki
                 Public Sub PreGenerate() Implements PreGenerator.PreGenerate
 
                     Dim setSonAndParent = Function(ByVal name As String, ByVal pName As String) As Entity.Tag
-                                              Dim t = New Entity.Tag(name)
+                                              Dim t = New Tag(name)
                                               t.ParentTagId = FindTagByName(pName).First.tagId
                                               Return t
                                           End Function
-                    Dim rootTag As New Entity.Tag("餐饮类别", 1)
+                    Dim rootTag As New Tag("餐饮类别", 1)
                     rootTag.ParentTagId = 0
                     Mapper.TagMapper.INSTANCE.Insert(rootTag)
 

@@ -2,7 +2,7 @@
 Public Class PasswordForm
     Private Property password As String = ""
 
-    Private Shared Property CONTROLLER As Controller = Controller.INSTANCE
+    Private Shared Property controller As Controller = Controller.INSTANCE
 
     Private Sub BtnLogin_Click(sender As Object, e As EventArgs) Handles BtnLogin.Click
 
@@ -12,8 +12,8 @@ Public Class PasswordForm
             Return
         End If
 
-        LoginController.INSTANCE.InputPassword(password)
-        If LoginController.INSTANCE.Login() Then
+        LoginController.Instance.InputPassword(password)
+        If LoginController.Instance.Login() Then
             If OrderController.INSTANCE.Pay() Then
                 MessageBox.Show("支付成功，请耐心等待。当您的餐准备好后，本系统会自动呼叫您！", "支付成功", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Me.Close()

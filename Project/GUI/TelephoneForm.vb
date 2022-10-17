@@ -2,11 +2,11 @@
 Public Class TelephoneForm
     Private Property telephone As String = ""
 
-    Private Shared Property LOGIN_CONTROLLER As LoginController = LoginController.INSTANCE
+    Private Shared Property loginController As LoginController = LoginController.Instance
 
     Private Sub BtnConfirm_Click(sender As Object, e As EventArgs) Handles BtnConfirm.Click
-        If LOGIN_CONTROLLER.InputTelephone(telephone) Then
-            LoginController.INSTANCE.Show(LoginController.WindowType.Password)
+        If loginController.InputTelephone(telephone) Then
+            LoginController.Instance.Show(LoginController.WindowType.Password)
             Me.Close()
         End If
         telephone = ""

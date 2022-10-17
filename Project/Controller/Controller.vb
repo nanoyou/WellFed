@@ -5,13 +5,13 @@ Namespace AkagawaTsurunaki
         Namespace Controller
             Public Class Controller
 
-                Private Shared ReadOnly Property LOGIN_CONTROLLER = LoginController.INSTANCE
+                Private Shared ReadOnly Property LOGIN_CONTROLLER = LoginController.Instance
 
                 Public Shared ReadOnly Property INSTANCE As Controller = New Controller()
 
                 Public Function Init()
-                    Service.MemberService.INSTANCE.Init()
-                    Service.TagService.INSTANCE.Init()
+                    Service.MemberService.Instance.Init()
+                    Service.TagService.Instance.Init()
                     Service.MenuService.Instance.Init()
                 End Function
 

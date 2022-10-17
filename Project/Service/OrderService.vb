@@ -7,8 +7,8 @@ Namespace AkagawaTsurunaki
         Namespace Service
             Public Class OrderService : Implements Interfaces.PreGenerator
 
-                Public Shared ReadOnly Property INSTANCE As OrderService = New OrderService()
-                Private Shared ReadOnly Property MENU_SERVICE As MenuService = MenuService.Instance
+                Public Shared ReadOnly Property Instance As OrderService = New OrderService()
+                Private Shared ReadOnly Property menuService As MenuService = MenuService.Instance
 
                 Private Shared Property order As New Order()
 

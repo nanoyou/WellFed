@@ -6,9 +6,9 @@ Namespace AkagawaTsurunaki
             Public Class OrderController
                 Public Shared ReadOnly Property INSTANCE As OrderController = New OrderController()
 
-                Private Shared ReadOnly Property ORDER_SERVICE As OrderService = OrderService.INSTANCE
+                Private Shared ReadOnly Property ORDER_SERVICE As OrderService = OrderService.Instance
                 Private Shared ReadOnly Property MENU_SERVICE As MenuService = MenuService.Instance
-                Private Shared ReadOnly Property MEMBER_SERVICE As MemberService = MemberService.INSTANCE
+                Private Shared ReadOnly Property MEMBER_SERVICE As MemberService = MemberService.Instance
 
                 Private Sub New()
 

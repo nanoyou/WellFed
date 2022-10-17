@@ -12,19 +12,19 @@ Namespace AkagawaTsurunaki
 
                 Public Shared ReadOnly Property Instance = New MenuService()
 
-                Private Shared ReadOnly Property MENU_ITEM_MAPPER As MenuItemMapper = MenuItemMapper.INSTANCE
+                Private Shared ReadOnly Property menuItemMapper As MenuItemMapper = MenuItemMapper.Instance
 
                 Public Sub PreGenerate() Implements PreGenerator.PreGenerate
 
                     Dim fun = Sub(ByVal tagName As String, ByRef items As String())
                                   For Each item In items
-                                      Dim tagId = TagService.INSTANCE.FindTagByName(tagName).First.tagId
-                                      Dim menuItem = New Entity.MenuItem()
+                                      Dim tagId As UInteger = TagService.Instance.FindTagByName(tagName).First.tagId
+                                      Dim menuItem As MenuItem = New MenuItem()
                                       menuItem.Price = New Decimal(Int(Rnd() * 60))
                                       menuItem.Name = item
                                       menuItem.WaitTime = Rnd() * 700
                                       menuItem.TagIds.Add(tagId)
-                                      Mapper.MenuItemMapper.INSTANCE.Insert(menuItem)
+                                      MenuItemMapper.Instance.Insert(menuItem)
                                   Next
                               End Sub
 
@@ -43,19 +43,19 @@ Namespace AkagawaTsurunaki
                     fun.Invoke("矿泉水", {"矿泉水"})
                     fun.Invoke("牛奶", {"热牛奶", "凉牛奶"})
 
-                    Mapper.MenuItemMapper.INSTANCE.Print()
+                    MenuItemMapper.Instance.Print()
                 End Sub
 
                 Public Sub Init()
-                    Mapper.MenuItemMapper.INSTANCE.Init("menu_item_table")
+                    MenuItemMapper.Instance.Init("menu_item_table")
                     PreGenerate()
                 End Sub
                 ''' <summary>
                 ''' 获取一个拥有所有菜单项的TreeView
                 ''' </summary>
                 Public Sub GetTreeNodeWithAllMenuItems(ByRef tv As TreeView)
-                    Dim menuItemList = Mapper.MenuItemMapper.INSTANCE.SelectAll()
-                    Dim rootTag = Mapper.TagMapper.INSTANCE.SelectRootTag()
+                    Dim menuItemList As List(Of MenuItem) = MenuItemMapper.Instance.SelectAll()
+                    Dim rootTag = TagMapper.INSTANCE.SelectRootTag()
                     Dim rootNode As New TreeNode(rootTag.Name)
                     tv.Nodes.Add(rootNode)
                     RecursivelyGetTreeNode(tv.Nodes, rootTag, 0)
@@ -81,11 +81,11 @@ Namespace AkagawaTsurunaki
 
                     Dim leafTagList = Mapper.TagMapper.INSTANCE.SelectLeafTags()
 
-                    For Each t In leafTagList
-                        Dim menuList = Mapper.MenuItemMapper.INSTANCE.SelectByTag(t.Id)
+                    For Each tag In leafTagList
+                        Dim menuItemList = Mapper.MenuItemMapper.Instance.SelectByTag(tag.Id)
 
-                        For Each m In menuList
-                            Dim nd = Util.WellFedHelper.FindNode(node, t.Name)
+                        For Each m In menuItemList
+                            Dim nd = Util.WellFedHelper.FindNode(node, tag.Name)
                             If nd IsNot Nothing Then
                                 nd.Nodes.Add(m.ToPlain())
                             End If
@@ -96,7 +96,7 @@ Namespace AkagawaTsurunaki
                 End Sub
 
                 Public Function FindMenuByName(name As String) As MenuItem
-                    Return MENU_ITEM_MAPPER.SelectByName(name)
+                    Return menuItemMapper.SelectByName(name)
                 End Function
 
 

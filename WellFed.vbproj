@@ -77,7 +77,6 @@
     <Compile Include="Project\Controller\LoginController.vb" />
     <Compile Include="Project\Controller\OrderController.vb" />
     <Compile Include="Project\Data\WellDataBase.vb" />
-    <Compile Include="Project\Entity\Entity.vb" />
     <Compile Include="Project\Entity\Member.vb" />
     <Compile Include="MianForm.vb">
       <SubType>Form</SubType>

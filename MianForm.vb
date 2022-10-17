@@ -9,9 +9,9 @@ Imports WellFed.AkagawaTsurunaki.WellFed.Controller
 ''' </summary>
 
 Public Class MainForm
-    Private Shared Property menuService As Service.MenuService = Service.MenuService.Instance
-    Private Shared ReadOnly Property CONTROLLER As Controller = CONTROLLER.INSTANCE
-    Private Shared ReadOnly Property ORDER_CONTROLLER As OrderController = OrderController.INSTANCE
+    Private Shared Property menuService As MenuService = Service.MenuService.Instance
+    Private Shared ReadOnly Property controller As Controller = Controller.INSTANCE
+    Private Shared ReadOnly Property orderController As OrderController = OrderController.INSTANCE
 
     Private Shared ReadOnly Property isPay As Boolean = False
 
@@ -45,12 +45,12 @@ Public Class MainForm
             Return
         End If
 
-        If Not ORDER_CONTROLLER.MakeOrder(node, LVOrder) Then
+        If Not orderController.MakeOrder(node, LVOrder) Then
             MessageBox.Show("您选中的不是一个具体的菜单项", "不能加入一个菜单项", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
         End If
 
-        ORDER_CONTROLLER.SettleUp(LbCost, LbWaitTime)
+        orderController.SettleUp(LbCost, LbWaitTime)
 
     End Sub
 
@@ -70,6 +70,6 @@ Public Class MainForm
     End Sub
 
     Private Sub BtnClear_Click(sender As Object, e As EventArgs) Handles BtnClear.Click
-        ORDER_CONTROLLER.ClearOrder(LbCost, LbWaitTime, LVOrder)
+        orderController.ClearOrder(LbCost, LbWaitTime, LVOrder)
     End Sub
 End Class

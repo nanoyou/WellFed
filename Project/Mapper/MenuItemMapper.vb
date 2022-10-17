@@ -8,7 +8,7 @@ Namespace AkagawaTsurunaki
         Namespace Mapper
             Public Class MenuItemMapper : Inherits Mapper.Mapper(Of Entity.MenuItem)
 
-                Public Shared ReadOnly Property INSTANCE As MenuItemMapper = New MenuItemMapper()
+                Public Shared ReadOnly Property Instance As MenuItemMapper = New MenuItemMapper()
 
                 ''' <summary>
                 ''' 根据Tag搜索相关的菜单项
