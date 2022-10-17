@@ -1,4 +1,5 @@
 # 东北大学（中国）VB.NET程序设计实验1
+github@AkagawaTsurunaki
 ## 实验1  VB.NET控件综合运用
 一、目的与任务
 实验学时数：4学时
