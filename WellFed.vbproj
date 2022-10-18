@@ -116,8 +116,8 @@
     <Compile Include="Project\GUI\TelephoneForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Project\Interfaces\HasPrimaryKey.vb" />
-    <Compile Include="Project\Interfaces\PreGenerator.vb" />
+    <Compile Include="Project\Interfaces\IHasPrimaryKey.vb" />
+    <Compile Include="Project\Interfaces\IPreGenerator.vb" />
     <Compile Include="Project\Mapper\Mapper.vb" />
     <Compile Include="Project\Mapper\MemberMapper.vb" />
     <Compile Include="Project\Mapper\MenuItemMapper.vb" />
