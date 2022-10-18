@@ -2,7 +2,7 @@
 Namespace AkagawaTsurunaki
     Namespace WellFed
         Namespace Entity
-            Public Class MenuItem : Implements HasPrimaryKey
+            Public Class MenuItem : Implements IHasPrimaryKey
 
                 ' 菜单项的名称
                 Public Property Name As String
@@ -19,7 +19,7 @@ Namespace AkagawaTsurunaki
                 Private Property menuId As UInteger
 
                 ' 菜单项的ID
-                Public Property Id As UInteger Implements HasPrimaryKey.PrimaryKey
+                Public Property Id As UInteger Implements IHasPrimaryKey.PrimaryKey
                     Get
                         Return menuId
                     End Get

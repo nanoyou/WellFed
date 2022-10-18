@@ -34,7 +34,7 @@ Public Class MainForm
     End Sub
 
     Private Sub BtnConfirm_Click(sender As Object, e As EventArgs) Handles BtnConfirm.Click
-        LoginController.INSTANCE.Show(LoginController.WindowType.Telephone)
+        LoginController.Instance.Show(LoginController.WindowType.Telephone)
     End Sub
 
     Private Sub BtnSlct_Click(sender As Object, e As EventArgs) Handles BtnSlct.Click

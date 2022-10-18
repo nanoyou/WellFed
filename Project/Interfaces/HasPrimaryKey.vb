@@ -1,7 +1,7 @@
 ﻿Namespace AkagawaTsurunaki
     Namespace WellFed
         Namespace Interfaces
-            Public Interface HasPrimaryKey
+            Public Interface IHasPrimaryKey
                 Property PrimaryKey As UInteger
             End Interface
 

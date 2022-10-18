@@ -5,7 +5,7 @@ Imports WellFed.AkagawaTsurunaki.WellFed.Entity
 Namespace AkagawaTsurunaki
     Namespace WellFed
         Namespace Service
-            Public Class OrderService : Implements Interfaces.PreGenerator
+            Public Class OrderService : Implements Interfaces.IPreGenerator
 
                 Public Shared ReadOnly Property Instance As OrderService = New OrderService()
                 Private Shared ReadOnly Property menuService As MenuService = MenuService.Instance
@@ -24,7 +24,7 @@ Namespace AkagawaTsurunaki
                     Return False
                 End Function
 
-                Public Sub PreGenerate() Implements PreGenerator.PreGenerate
+                Public Sub PreGenerate() Implements IPreGenerator.PreGenerate
                     Dim order = New Order()
                     order.MemberId = 1
                     Dim itm = Mapper.MenuItemMapper.INSTANCE.SelectAll().ElementAt(0)

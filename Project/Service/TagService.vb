@@ -4,7 +4,7 @@ Imports WellFed.AkagawaTsurunaki.WellFed.Entity
 Namespace AkagawaTsurunaki
     Namespace WellFed
         Namespace Service
-            Public Class TagService : Implements Interfaces.PreGenerator
+            Public Class TagService : Implements Interfaces.IPreGenerator
                 Public Shared ReadOnly Property Instance As TagService = New TagService()
 
                 Public Sub Init()
@@ -31,7 +31,7 @@ Namespace AkagawaTsurunaki
                     Return result
                 End Function
 
-                Public Sub PreGenerate() Implements PreGenerator.PreGenerate
+                Public Sub PreGenerate() Implements IPreGenerator.PreGenerate
 
                     Dim setSonAndParent = Function(ByVal name As String, ByVal pName As String) As Entity.Tag
                                               Dim t = New Tag(name)

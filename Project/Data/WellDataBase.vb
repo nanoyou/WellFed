@@ -3,7 +3,7 @@ Namespace AkagawaTsurunaki
 
     Namespace WellFed
         Namespace WellDataBase
-            Public Class Table(Of T As HasPrimaryKey)
+            Public Class Table(Of T As IHasPrimaryKey)
 
                 Public Property TableName As String
                 Public Property PrimaryKey As UInteger

@@ -8,13 +8,13 @@ Imports WellFed.AkagawaTsurunaki.WellFed.WellDataBase
 Namespace AkagawaTsurunaki
     Namespace WellFed
         Namespace Service
-            Public Class MenuService : Implements Interfaces.PreGenerator
+            Public Class MenuService : Implements Interfaces.IPreGenerator
 
                 Public Shared ReadOnly Property Instance = New MenuService()
 
                 Private Shared ReadOnly Property menuItemMapper As MenuItemMapper = MenuItemMapper.Instance
 
-                Public Sub PreGenerate() Implements PreGenerator.PreGenerate
+                Public Sub PreGenerate() Implements IPreGenerator.PreGenerate
 
                     Dim fun = Sub(ByVal tagName As String, ByRef items As String())
                                   For Each item In items

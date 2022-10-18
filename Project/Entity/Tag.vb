@@ -2,7 +2,7 @@
 Namespace AkagawaTsurunaki
     Namespace WellFed
         Namespace Entity
-            Public Class Tag : Implements HasPrimaryKey
+            Public Class Tag : Implements IHasPrimaryKey
 
                 ' 标签的名称
                 Public Property Name As String
@@ -12,7 +12,7 @@ Namespace AkagawaTsurunaki
                 ' 标签的ID
                 Public Property tagId As UInteger
 
-                Public Property Id As UInteger Implements HasPrimaryKey.PrimaryKey
+                Public Property Id As UInteger Implements IHasPrimaryKey.PrimaryKey
                     Get
                         Return tagId
                     End Get

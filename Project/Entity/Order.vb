@@ -2,7 +2,7 @@
 Namespace AkagawaTsurunaki
     Namespace WellFed
         Namespace Entity
-            Public Class Order : Implements HasPrimaryKey
+            Public Class Order : Implements IHasPrimaryKey
                 Private Property orderId As UInteger
                 Public Property MemberId As UInteger
                 Public Class Dish
@@ -54,7 +54,7 @@ Namespace AkagawaTsurunaki
                     End Get
                 End Property
 
-                Public Property Id As UInteger Implements HasPrimaryKey.PrimaryKey
+                Public Property Id As UInteger Implements IHasPrimaryKey.PrimaryKey
                     Get
                         Return orderId
                     End Get

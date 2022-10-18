@@ -5,7 +5,7 @@ Imports WellFed.AkagawaTsurunaki.WellFed.WellDataBase
 Namespace AkagawaTsurunaki
     Namespace WellFed
         Namespace Service
-            Public Class MemberService : Implements Interfaces.PreGenerator
+            Public Class MemberService : Implements Interfaces.IPreGenerator
                 Public Shared ReadOnly Property Instance As MemberService = New MemberService()
 
                 Public Shared Property MemberLogined As Entity.Member
@@ -41,7 +41,7 @@ Namespace AkagawaTsurunaki
                     Return True
                 End Function
 
-                Private Sub PreGenerate() Implements PreGenerator.PreGenerate
+                Private Sub PreGenerate() Implements IPreGenerator.PreGenerate
                     For counter = 1 To 20
                         Dim m = New Entity.Member()
 

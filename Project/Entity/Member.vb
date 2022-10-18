@@ -3,7 +3,7 @@
 Namespace AkagawaTsurunaki
     Namespace WellFed
         Namespace Entity
-            Public Class Member : Implements HasPrimaryKey
+            Public Class Member : Implements IHasPrimaryKey
                 ' 会员的电话(会员号)
                 Public Property Telephone As String
                 ' 会员的密码盐
@@ -13,7 +13,7 @@ Namespace AkagawaTsurunaki
                 Public Property Balance As Decimal
                 ' 会员的ID
                 Private Property memberId As UInteger
-                Public Property Id As UInteger Implements HasPrimaryKey.PrimaryKey
+                Public Property Id As UInteger Implements IHasPrimaryKey.PrimaryKey
                     Get
                         Return memberId
                     End Get
